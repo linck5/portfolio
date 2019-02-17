@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
 import { TextAnimatorService } from '../globalServices/textAnimator/text-animator.service'
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core'
 
 @Component({
   selector: 'app-about',
@@ -8,13 +9,26 @@ import { TextAnimatorService } from '../globalServices/textAnimator/text-animato
 })
 export class AboutComponent implements OnInit {
 
-  constructor(private textAnimator:TextAnimatorService) { }
+  constructor(
+    private textAnimator:TextAnimatorService,
+    private translate: TranslateService) { }
 
-  text1: string = `Sempre gostei de tecnologia e começei a me envolver com desenvolvimento. Meu gosto por jogos me fez estudar esta área, e trabalhei como desenvolvedor de jogos em algumas empresas. Agora estou interessado e buscando conhecimento em desenvolvimento web. Estive estudando várias tecnologias, tanto de front quanto de back end. Tenho bastante vontade de adquirir mais experiência e trabalhar em equipe.`
+
 
   ngOnInit() {
-    this.textAnimator.animateText(
-      this.text1, document.getElementById('p1'), {})
+
+
+    let aboutTextElement = document.getElementById('aboutText')
+
+    this.translate.onLangChange.subscribe((lang: LangChangeEvent) => {
+      this.textAnimator.animateText(lang.translations['About']['MainParagraph'], aboutTextElement)
+    });
+
   }
+
+  switchLanguage(language: string) {
+    this.translate.use(language);
+  }
+
 
 }
