@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core'
+import AOS from 'aos'
 
 @Component({
   selector: 'app-root',
@@ -15,5 +16,13 @@ export class AppComponent {
 
        // the lang to use, if the lang isn't available, it will use the current loader to get them
       translate.use('en');
+
+
+      AOS.init({
+        duration: 400,
+        offset: 150,
+        easing: 'ease-out-sine',
+        once: true
+      })
   }
 }
