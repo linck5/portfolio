@@ -7,6 +7,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { CoverComponent } from './cover/cover.component';
+import { MyworkComponent } from './mywork/mywork.component';
+import { ContactComponent } from './contact/contact.component';
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -16,7 +19,10 @@ export function createTranslateLoader(http: HttpClient) {
   declarations: [
     AppComponent,
     AboutComponent,
-    NavbarComponent
+    NavbarComponent,
+    CoverComponent,
+    MyworkComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

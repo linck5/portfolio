@@ -1,0 +1,54 @@
+#coverSection{
+  background-color: #333;
+}
+
+#coverSectionWrapper{
+  animation: cover_appearing 1.0s;
+  animation-timing-function: ease-in-out;
+}
+@keyframes cover_appearing {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+#coverImage{
+  // background-image: url("../images/coverBGImage.jpeg");
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: top;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+
+#coverText{
+  position: absolute;
+  left: 0;
+  top: 30%;
+  width: 100%;
+  padding-left: 18%;
+  font-family: 'Baloo', cursive;
+
+  // }@include media("<desktop") {#coverText{
+  //   top: 20%;
+  //   padding-left: 0;
+  // }
+}
+
+$textColor: #edeff9;
+$shadowColor: #393136;
+#coverText h1{
+  font-family: 'Righteous', cursive;
+  text-align: center;
+  font-size: 18vmin;
+  text-shadow: 0.03em 0.03em $shadowColor;
+  color: $textColor;
+}
+#coverText h2{
+   font-family: 'Oswald', sans-serif;
+  text-align: center;
+  font-size: 10vmin;
+  text-shadow: 0.03em 0.03em $shadowColor;
+  color: $textColor;
+}
