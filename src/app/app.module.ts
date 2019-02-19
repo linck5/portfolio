@@ -10,6 +10,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CoverComponent } from './cover/cover.component';
 import { MyworkComponent } from './mywork/mywork.component';
 import { ContactComponent } from './contact/contact.component';
+import { LayoutComponent } from './layout/layout.component';
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -22,7 +23,8 @@ export function createTranslateLoader(http: HttpClient) {
     NavbarComponent,
     CoverComponent,
     MyworkComponent,
-    ContactComponent
+    ContactComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
