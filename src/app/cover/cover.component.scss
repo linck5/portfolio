@@ -1,3 +1,5 @@
+@import "~include-media/dist/_include-media.scss";
+
 #coverSection{
   background-color: #333;
 }
@@ -30,10 +32,10 @@
   padding-left: 18%;
   font-family: 'Baloo', cursive;
 
-  // }@include media("<desktop") {#coverText{
-  //   top: 20%;
-  //   padding-left: 0;
-  // }
+  }@include media("<desktop") {#coverText{
+    top: 20%;
+    padding-left: 0;
+  }
 }
 
 $textColor: #edeff9;
