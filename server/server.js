@@ -3,6 +3,14 @@ const path = require ('path')
 
 require('dotenv').config();
 
+const mongoose = require('mongoose');
+mongoose.connect(process.env.DB_STRING, {useNewUrlParser: true});
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log("connected to db")
+});
+
 const app = express();
 
 app.use(express.static(__dirname + '/dist/portfolio'))
@@ -12,7 +20,3 @@ app.get('/*', (req, res) => {
 })
 
 app.listen(process.env.PORT || 8080)
-
-console.log("DOT ENV FILE TEST OUTPUT >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + process.env.TEST)
-
-//heroku auto deploy test
