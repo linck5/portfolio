@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import axios from 'axios';
 
-var url = 'http://localhost:4200/api/projects'
+var url = environment.api_url + '/projects'
 
 @Component({
   selector: 'app-mywork',
