@@ -1,4 +1,5 @@
 const express = require('express')
+var router = express.Router();
 const path = require ('path')
 
 require('dotenv').config();
@@ -15,8 +16,15 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, '..', '/dist/portfolio')))
 
-app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', '/dist/portfolio/index.html'))
-})
+
+app.use('/', router);
+
+router.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', '/dist/portfolio/index.html'))
+});
+
+
+
+require('./api-router')(router)
 
 app.listen(process.env.PORT || 8080)
