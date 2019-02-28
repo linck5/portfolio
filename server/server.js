@@ -2,6 +2,7 @@ const express = require('express')
 const path = require ('path')
 const bodyParser = require('body-parser')
 const router = express.Router();
+const auth = require('./auth.middleware')
 
 require('dotenv').config();
 
@@ -21,6 +22,7 @@ const app = express()
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
+app.use(auth)
 
 app.use(express.static(path.join(__dirname, '..', '/dist/portfolio')))
 
