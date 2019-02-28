@@ -22,7 +22,10 @@ const app = express()
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
-app.use(auth)
+app.post(auth)
+app.patch(atuh)
+app.put(atuh)
+app.delete(auth)
 
 app.use(express.static(path.join(__dirname, '..', '/dist/portfolio')))
 
