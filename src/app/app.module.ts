@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpClientModule, HttpClient} from '@angular/common/http';
-import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import {TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { AppRoutingModule } from './app-routing.module';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -14,6 +14,7 @@ import { CoverComponent } from './cover/cover.component';
 import { MyworkComponent } from './mywork/mywork.component';
 import { ContactComponent } from './contact/contact.component';
 import { LayoutComponent } from './layout/layout.component';
+import { AdminCpComponent } from './admin-cp/admin-cp.component';
 
 
 
@@ -31,6 +32,8 @@ export class ServerApiLoader implements TranslateLoader {
   }
 }
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +42,8 @@ export class ServerApiLoader implements TranslateLoader {
     CoverComponent,
     MyworkComponent,
     ContactComponent,
-    LayoutComponent
+    LayoutComponent,
+    AdminCpComponent
   ],
   imports: [
     BrowserModule,
