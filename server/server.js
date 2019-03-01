@@ -32,7 +32,7 @@ app.use(express.static(path.join(__dirname, '..', '/dist/portfolio')))
 
 app.use('/', router);
 
-router.get('/', (req, res) => {
+router.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '..', '/dist/portfolio/index.html'))
 });
 
