@@ -20,22 +20,23 @@ db.once('open', function() {
 
 const app = express()
 
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
-app.post(auth)
-app.patch(auth)
-app.put(auth)
-app.delete(auth)
-
 app.use(express.static(path.join(__dirname, '..', '/dist/portfolio')))
 
-
 app.use('/', router);
+
+router.use(bodyParser.urlencoded({ extended: true }))
+router.use(bodyParser.json())
+router.post(auth)
+router.patch(auth)
+router.put(auth)
+router.delete(auth)
+
+require('./i18n/i18n.controller')(router)
 
 router.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '..', '/dist/portfolio/index.html'))
 });
 
-require('./i18n/i18n.controller')(router)
+
 
 app.listen(process.env.PORT || 8080)
