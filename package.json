@@ -26,7 +26,6 @@
     "aos": "^3.0.0-beta.6",
     "body-parser": "^1.18.3",
     "bootstrap": "^4.3.1",
-    "brutusin-json-forms": "0.0.0",
     "core-js": "^2.5.4",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
