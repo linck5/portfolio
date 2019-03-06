@@ -15,6 +15,7 @@ import { MyworkComponent } from './mywork/mywork.component';
 import { ContactComponent } from './contact/contact.component';
 import { LayoutComponent } from './layout/layout.component';
 import { AdminCpComponent } from './admin-cp/admin-cp.component';
+import { MyworkItemComponent } from './mywork/mywork-item/mywork-item.component';
 
 
 
@@ -43,7 +44,8 @@ export class ServerApiLoader implements TranslateLoader {
     MyworkComponent,
     ContactComponent,
     LayoutComponent,
-    AdminCpComponent
+    AdminCpComponent,
+    MyworkItemComponent
   ],
   imports: [
     BrowserModule,
