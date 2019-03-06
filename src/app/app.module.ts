@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {FormsModule} from '@angular/forms'
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import {TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +17,7 @@ import { ContactComponent } from './contact/contact.component';
 import { LayoutComponent } from './layout/layout.component';
 import { AdminCpComponent } from './admin-cp/admin-cp.component';
 import { MyworkItemComponent } from './mywork/mywork-item/mywork-item.component';
+import { MyworkPipe } from './mywork/mywork.pipe';
 
 
 
@@ -45,10 +47,12 @@ export class ServerApiLoader implements TranslateLoader {
     ContactComponent,
     LayoutComponent,
     AdminCpComponent,
-    MyworkItemComponent
+    MyworkItemComponent,
+    MyworkPipe
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule,
     TranslateModule.forRoot({

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
+import { MyworkPipe } from './mywork.pipe'
 
 @Component({
   selector: 'app-mywork',
@@ -21,6 +22,8 @@ export class MyworkComponent implements OnInit {
       type: 'gamedev'
     }
   ]
+
+  workType:string = "all";
 
   constructor() { }
 

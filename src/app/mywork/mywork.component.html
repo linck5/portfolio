@@ -1,8 +1,12 @@
 <p>
   ========= My work =========
 </p>
+<input type="radio" [(ngModel)]="workType" name="workType" value="all"> All<br>
+<input type="radio" [(ngModel)]="workType" name="workType" value="web" > Web<br>
+<input type="radio" [(ngModel)]="workType" name="workType" value="gamedev"> Game Dev<br>
 
+<h1>{{workType}}</h1>
 
   <ul>
-    <li *ngFor="let work of works"><app-mywork-item [work]="work"></app-mywork-item></li>
+    <li *ngFor="let work of works | mywork:workType"><app-mywork-item [work]="work"></app-mywork-item></li>
   </ul>
