@@ -4,7 +4,7 @@
 
 
       <h3>{{work.title}}</h3>
-      <p>{{work.description}}</p>
+      <p [innerHTML]="work.description"></p>
 
       <a *ngIf='work.workUrl != undefined' href={{work.workUrl}} target="_blank" role="button">Visualizar Página</a>
       <a *ngIf='work.videoUrl != undefined' href={{work.videoUrl}} target="_blank" role="button">Ver Vídeo</a>
