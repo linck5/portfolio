@@ -1,5 +1,9 @@
 module.exports = function (req, res, next){
-  if(!req.headers.authorization){
+
+  if(req.method === "GET"){
+    next()
+  }
+  else if(!req.headers.authorization){
     res.status(401).send("Authorization Required");
   }
   else{

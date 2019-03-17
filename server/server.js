@@ -22,14 +22,12 @@ const app = express()
 
 app.use(express.static(path.join(__dirname, '..', '/dist/portfolio')))
 
+app.use(auth)
+
 app.use('/', router);
 
 router.use(bodyParser.urlencoded({ extended: true }))
 router.use(bodyParser.json())
-router.post(auth)
-router.patch(auth)
-router.put(auth)
-router.delete(auth)
 
 require('./i18n/i18n.controller')(router)
 require('./projects/project.controller')(router)
