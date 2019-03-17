@@ -32,6 +32,7 @@ router.put(auth)
 router.delete(auth)
 
 require('./i18n/i18n.controller')(router)
+require('./projects/project.controller')(router)
 
 router.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '..', '/dist/portfolio/index.html'))
