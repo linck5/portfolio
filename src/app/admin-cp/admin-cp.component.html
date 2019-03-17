@@ -1,5 +1,11 @@
 
 
+<ul>
+  <li *ngFor="let project of projects | mywork:workType">
+    <app-project-item [project]="project"></app-project-item>
+  </li>
+</ul>
+
 <div class="container">
     <h1>Credentials</h1>
     <form>
