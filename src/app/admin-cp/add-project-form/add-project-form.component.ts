@@ -1,6 +1,5 @@
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+import { HttpService } from 'src/app/globalServices/http-service/http.service'
 import { map } from 'rxjs/operators';
 
 class ProjectForm {
@@ -32,7 +31,7 @@ export class AddProjectFormComponent implements OnInit {
   @Input() credentialsForm; //TODO type it
   @Output() projectAdded = new EventEmitter<string>();
 
-  constructor(private http: HttpClient) { }
+  constructor(private httpService: HttpService) { }
 
   ngOnInit() {
   }
@@ -59,19 +58,10 @@ export class AddProjectFormComponent implements OnInit {
       "sourceCodeUrl": form.sourceCodeUrl,
     }
 
-    return this.http.post(
-      environment.api_url + '/projects',
-      projectObj,
-      { headers: this.getHeaders() }
-    ).subscribe(data => console.log(data))
+    return this.httpService.post('/projects',projectObj,this.credentialsForm)
+    .subscribe(data => console.log(data))
   }
 
-  private getHeaders(){
-    return new HttpHeaders({
-      'Content-Type':  'application/json',
-      'Authorization': 'Basic ' + btoa(`${this.credentialsForm.username}:${this.credentialsForm.password}`)
-    })
-  }
 
   private yearMonth2Date(year, month){
     return new Date(year, month - 1 /*starts from zero*/, 1);
