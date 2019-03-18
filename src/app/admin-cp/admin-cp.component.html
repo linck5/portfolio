@@ -1,45 +1,35 @@
-<h1>Admin Control Panel</h1>
+<div id="layout">
+  <header>
 
-<div class="container">
+    <h1 id="header-title">Admin Control Panel</h1>
 
-    <section>
-      <div class="row">
-        <h3>Credentials</h3>
-      </div>
-      <div class="row">
-        <form>
-          <div class="form-group">
-            <input type="text" class="form-control" name="username" id="username" [(ngModel)]="credentialsForm.username" required>
-          </div>
+    <section id="credentials">
 
-          <div class="form-group">
-            <input type="password" class="form-control" name="password" id="password" [(ngModel)]="credentialsForm.password" required>
-          </div>
-        </form>
-      </div>
+      <h3>Credentials</h3>
+      <form>
+            <input type="text" name="username" id="username" [(ngModel)]="credentialsForm.username" required>
+
+            <input type="password" name="password" id="password" [(ngModel)]="credentialsForm.password" required>
+
+      </form>
 
     </section>
 
+  </header>
 
+  <app-add-project-form class="add-form"
+     [credentialsForm]="credentialsForm"
+     (projectAdded)="updateProjectsList()">
+  </app-add-project-form>
 
-
-<ul>
-  <li *ngFor="let project of projects | mywork:workType">
-    <app-project-item
-      [credentialsForm]="credentialsForm"
-      [project]="project"
-      (projectDeleted)="updateProjectsList()">
-    </app-project-item>
-  </li>
-</ul>
-
-
-
-
-<app-add-project-form
-   [credentialsForm]="credentialsForm"
-   (projectAdded)="updateProjectsList()">
-</app-add-project-form>
-
+  <ul>
+    <li *ngFor="let project of projects | mywork:workType">
+      <app-project-item
+        [credentialsForm]="credentialsForm"
+        [project]="project"
+        (projectDeleted)="updateProjectsList()">
+      </app-project-item>
+    </li>
+  </ul>
 
 </div>

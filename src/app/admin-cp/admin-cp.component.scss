@@ -1,0 +1,68 @@
+#layout {
+  background-color: lightgrey;
+  display: grid;
+  height: 100vh;
+  grid-template-columns: minmax(0, 15vw)  minmax(400px, 1fr)  minmax(400px, 1fr) minmax(0, 15vw);
+  grid-template-rows: 52px 1fr;
+  grid-template-areas:
+    "header   header      header  header"
+    "...      add_form    list    ...";
+}
+
+#layout > header {
+  background-color: lightblue;
+  grid-area: header;
+  display: flex;
+}
+
+#layout > app-add-project-form {
+  background-color: lightgreen;
+  grid-area: add_form;
+}
+
+#layout > ul {
+  margin: 0;
+  background-color: lightyellow;
+  grid-area: list;
+}
+
+#layout > header > h1{
+  flex: 1;
+  margin: auto 0;
+  padding-left: 5vw;
+  font-size: 1.3rem;
+}
+
+#layout > header > #credentials{
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 5px;
+
+  width: 220px;
+  margin-right: 2vw;
+}
+
+#layout > header > #credentials > h3 {
+  font-size: 0.8rem;
+  margin-bottom: 3px;
+}
+
+#layout > header > #credentials > form {
+  flex: 1;
+  display: flex;
+}
+
+#layout > header > #credentials > form > input {
+  flex: 1;
+  height: 20px;
+  width: 100px;
+}
+
+#layout > header > #credentials > form > #username {
+  margin-right: 5px;
+}
+
+.credentials-input {
+}
