@@ -1,6 +1,5 @@
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { HttpService } from 'src/app/globalServices/http-service/http.service'
-import { map } from 'rxjs/operators';
 
 class ProjectForm {
 

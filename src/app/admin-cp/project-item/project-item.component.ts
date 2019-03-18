@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { HttpService } from 'src/app/globalServices/http-service/http.service'
 
 @Component({
   selector: 'app-project-item',
@@ -7,17 +8,19 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class ProjectItemComponent implements OnInit {
 
-  @Input() public project:any
+  @Input() project:any
+  @Input() credentialsForm; //TODO type it
   @Output() projectDeleted = new EventEmitter<string>();
 
-  constructor() { }
+  constructor(private httpService: HttpService) { }
 
   ngOnInit() {
 
   }
 
-  onDelete(project) {
-    console.log('will delete ' + project._id)
+  async onDelete(project) {
+    await this.httpService.delete(`/project/${project._id}`, this.credentialsForm)
+    .subscribe()
     this.projectDeleted.emit();
   }
 

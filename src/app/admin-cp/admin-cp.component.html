@@ -26,6 +26,7 @@
 <ul>
   <li *ngFor="let project of projects | mywork:workType">
     <app-project-item
+      [credentialsForm]="credentialsForm"
       [project]="project"
       (projectDeleted)="updateProjectsList()">
     </app-project-item>
