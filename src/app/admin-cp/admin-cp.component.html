@@ -1,77 +1,44 @@
+<div class="container">
+
+    <section>
+      <div class="row">
+        <h3>Credentials</h3>
+      </div>
+      <div class="row">
+        <form>
+          <div class="form-group">
+            <input type="text" class="form-control" name="username" id="username" [(ngModel)]="credentialsForm.username" required>
+          </div>
+
+          <div class="form-group">
+            <input type="password" class="form-control" name="password" id="password" [(ngModel)]="credentialsForm.password" required>
+          </div>
+        </form>
+      </div>
+
+    </section>
+
+
+
+
 
 
 <ul>
   <li *ngFor="let project of projects | mywork:workType">
-    <app-project-item [project]="project"></app-project-item>
+    <app-project-item
+      [project]="project"
+      (projectDeleted)="updateProjectsList()">
+    </app-project-item>
   </li>
 </ul>
 
-<div class="container">
-    <h1>Credentials</h1>
-    <form>
-      <div class="form-group">
-        <input type="text" class="form-control" name="username" id="username" [(ngModel)]="credentialsForm.username" required>
-      </div>
 
-      <div class="form-group">
-        <input type="password" class="form-control" name="password" id="password" [(ngModel)]="credentialsForm.password" required>
-      </div>
-    </form>
+
+
+<app-add-project-form
+   [credentialsForm]="credentialsForm"
+   (projectAdded)="updateProjectsList()">
+</app-add-project-form>
+
+
 </div>
-
-
-<h1>New</h1>
-
-<form (ngSubmit)="onSubmit()" #heroForm="ngForm">
-
-  <div class="form-group">
-    <label for="title">title</label>
-    <input type="text" class="form-control" id="title"
-           [(ngModel)]="projectForm.title" name="title">
-  </div>
-
-  <div class="form-group">
-    <label for="year">year</label>
-    <input type="text" class="form-control" id="year"
-           [(ngModel)]="projectForm.year" name="year">
-  </div>
-
-  <div class="form-group">
-    <label for="month">month</label>
-    <input type="text" class="form-control" id="month"
-           [(ngModel)]="projectForm.month" name="month">
-  </div>
-
-  <div class="form-group">
-    <label for="description">description</label>
-    <input type="text" class="form-control" id="description"
-           [(ngModel)]="projectForm.description" name="description">
-  </div>
-
-  <div class="form-group">
-    <label for="type">type</label>
-    <input type="text" class="form-control" id="type"
-           [(ngModel)]="projectForm.type" name="type">
-  </div>
-
-  <div class="form-group">
-    <label for="imageUrl">imageUrl</label>
-    <input type="text" class="form-control" id="imageUrl"
-           [(ngModel)]="projectForm.imageUrl" name="imageUrl">
-  </div>
-
-  <div class="form-group">
-    <label for="workUrl">workUrl</label>
-    <input type="text" class="form-control" id="workUrl"
-           [(ngModel)]="projectForm.workUrl" name="workUrl">
-  </div>
-
-  <div class="form-group">
-    <label for="sourceCodeUrl">sourceCodeUrl</label>
-    <input type="text" class="form-control" id="sourceCodeUrl"
-           [(ngModel)]="projectForm.sourceCodeUrl" name="sourceCodeUrl">
-  </div>
-
-  <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
-
-</form>

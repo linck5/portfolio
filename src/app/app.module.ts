@@ -19,6 +19,7 @@ import { AdminCpComponent } from './admin-cp/admin-cp.component';
 import { MyworkItemComponent } from './mywork/mywork-item/mywork-item.component';
 import { MyworkPipe } from './mywork/mywork.pipe';
 import { ProjectItemComponent } from './admin-cp/project-item/project-item.component';
+import { AddProjectFormComponent } from './admin-cp/add-project-form/add-project-form.component';
 
 
 
@@ -50,7 +51,8 @@ export class ServerApiLoader implements TranslateLoader {
     AdminCpComponent,
     MyworkItemComponent,
     MyworkPipe,
-    ProjectItemComponent
+    ProjectItemComponent,
+    AddProjectFormComponent
   ],
   imports: [
     BrowserModule,
