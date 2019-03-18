@@ -25,7 +25,19 @@ export class AddProjectFormComponent implements OnInit {
 
   public projectForm:ProjectForm = new ProjectForm('', 2000, 1, '', 'web');
 
+  public test = ""
 
+  public formTemplate = [
+    {name: 'title', label: 'Title'},
+    {name: 'year', label: 'Year (YYYY)'},
+    {name: 'month', label: 'Month (1 to 12)'},
+    {name: 'description', label: 'Description'},
+    {name: 'type', label: 'Type (web || gamedev || ml)'},
+    {name: 'imageUrl', label: 'Image URL'},
+    {name: 'workUrl', label: 'Project URL'},
+    {name: 'sourceCodeUrl', label: 'Source Code URL'},
+    {name: 'XXXXXX', label: 'XXXXXX'},
+  ]
 
   @Input() credentialsForm; //TODO type it
   @Output() projectAdded = new EventEmitter<string>();
