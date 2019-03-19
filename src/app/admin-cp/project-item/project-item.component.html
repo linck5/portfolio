@@ -1,3 +1,18 @@
-{{project.title}}
 
-<button type="button" name="button" (click)="onDelete(project)">Delete</button>
+<div class="item-container">
+  <img src={{project.imageUrl}} alt="">
+
+  <div class="project-attribute"><p><b>Title: </b>{{project.title}}</p></div>
+  <div class="project-attribute"><p><b>Type: </b>{{project.type}}</p></div>
+  <div class="project-attribute"><p><b>Description: </b>{{project.description}}</p></div>
+  <div class="project-attribute"><p><b>Img URL: </b>{{project.imageUrl}}</p></div>
+  <div class="project-attribute"><p><b>Src URL: </b>{{project.sourceCodeUrl}}</p></div>
+  <div class="project-attribute"><p><b>Proj URL: </b>{{project.workUrl}}</p></div>
+  <div class="project-attribute"><p><b>Vid URL: </b>{{project.videoUrl}}</p></div>
+
+  <button class="btn btn-outline-danger" type="button" name="button" (click)="onDelete(project)">X</button>
+
+  <div class="project-attribute"><p><b>Date: </b>{{project.date}}</p></div>
+
+
+</div>

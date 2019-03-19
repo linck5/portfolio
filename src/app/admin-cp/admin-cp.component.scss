@@ -20,10 +20,35 @@
   background-color: #EEE;
 }
 
+#layout > ul::-webkit-scrollbar-track
+{
+	background-color: inherit;
+}
+
+#layout > ul::-webkit-scrollbar
+{
+  width: 7px;
+}
+
+#layout > ul::-webkit-scrollbar-thumb
+{
+  background-color: #00000033;
+}
+
 #layout > ul {
   margin: 0;
   background-color: #EEE;
   grid-area: list;
+  padding: 10px;
+  overflow-y: scroll;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: auto;
+  grid-row-gap: 10px;
+}
+
+#layout > ul > li {
+  background-color: #CAA4;
 }
 
 #layout > header > h1{

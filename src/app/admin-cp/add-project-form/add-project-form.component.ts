@@ -35,6 +35,7 @@ export class AddProjectFormComponent implements OnInit {
     {name: 'type', label: 'Type (web || gamedev || ml)'},
     {name: 'imageUrl', label: 'Image URL'},
     {name: 'workUrl', label: 'Project URL'},
+    {name: 'videoUrl', label: 'Demo Video URL'},
     {name: 'sourceCodeUrl', label: 'Source Code URL'},
   ]
 
@@ -65,6 +66,7 @@ export class AddProjectFormComponent implements OnInit {
       "description": form.description,
       "type": form.type,
       "workUrl": form.workUrl,
+      "videoUrl": form.videoUrl,
       "sourceCodeUrl": form.sourceCodeUrl,
     }
 
