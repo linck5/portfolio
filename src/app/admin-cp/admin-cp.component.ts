@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
-import { map } from 'rxjs/operators';
+import { HttpService } from 'src/app/globalServices/http-service/http.service';
 
 
 
@@ -20,7 +18,7 @@ export class AdminCpComponent implements OnInit {
 
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private httpService: HttpService) { }
 
 
 
@@ -30,8 +28,9 @@ export class AdminCpComponent implements OnInit {
 
   }
 
-  public updateProjectsList(){
-    this.http.get(environment.api_url + '/projects').subscribe(data => this.projects = data)
+  public async updateProjectsList(){
+    let res = await this.httpService.get('/projects').toPromise();
+    this.projects = res;
   }
 
 
