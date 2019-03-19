@@ -1,5 +1,5 @@
 #layout {
-  background-color: lightgrey;
+  background-color: #DDD;
   display: grid;
   height: 100vh;
   grid-template-columns: minmax(0, 15vw)  minmax(400px, 1fr)  minmax(400px, 1fr) minmax(0, 15vw);
@@ -16,13 +16,13 @@
 }
 
 #layout > app-add-project-form {
-  background-color: lightgreen;
   grid-area: add_form;
+  background-color: #EEE;
 }
 
 #layout > ul {
   margin: 0;
-  background-color: lightyellow;
+  background-color: #EEE;
   grid-area: list;
 }
 

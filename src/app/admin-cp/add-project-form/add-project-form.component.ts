@@ -36,7 +36,6 @@ export class AddProjectFormComponent implements OnInit {
     {name: 'imageUrl', label: 'Image URL'},
     {name: 'workUrl', label: 'Project URL'},
     {name: 'sourceCodeUrl', label: 'Source Code URL'},
-    {name: 'XXXXXX', label: 'XXXXXX'},
   ]
 
   @Input() credentialsForm; //TODO type it

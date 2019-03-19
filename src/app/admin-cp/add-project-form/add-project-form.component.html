@@ -1,12 +1,14 @@
 <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
   <h3>New</h3>
 
-  <div *ngFor="let formRow of formTemplate">
+  <div class="form-line" *ngFor="let formRow of formTemplate">
     <label for={{formRow.name}}>{{formRow.label}}</label>
     <input type="text" id={{formRow.name}}
            [(ngModel)]=projectForm[formRow.name] name={{formRow.name}}>
   </div>
 
-  <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
+  <div id="button-flex-container">
+    <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Add</button>
+  </div>
 
 </form>

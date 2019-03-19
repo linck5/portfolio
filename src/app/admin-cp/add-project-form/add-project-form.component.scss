@@ -1,0 +1,42 @@
+h3 {
+  margin-bottom: 1rem;
+}
+
+form {
+  padding: 10px;
+  background-color: #FFF8;
+  margin: 2rem 2vw 0 2vw;
+  box-shadow: 3px 2px #0000001c;
+  border: 1px solid #0022;
+}
+
+form > div {
+  display: flex;
+  padding: 9px;
+}
+
+form > div > label {
+  padding-right: 10px;
+}
+
+
+form > .form-line:nth-child(even) {
+  background-color: #CCCCDD44;
+}
+
+form > div > label {
+  flex: 1;
+}
+
+form > div > input {
+  flex: 1;
+}
+
+#button-flex-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#button-flex-container > button {
+
+}
