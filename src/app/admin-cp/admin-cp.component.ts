@@ -6,7 +6,7 @@ import { HttpService } from 'src/app/globalServices/http-service/http.service';
 @Component({
   selector: 'app-admin-cp',
   templateUrl: './admin-cp.component.html',
-  styleUrls: ['./admin-cp.component.scss']
+  styleUrls: ['./admin-cp.component.scss', './admin-cp.shared.scss']
 })
 export class AdminCpComponent implements OnInit {
 

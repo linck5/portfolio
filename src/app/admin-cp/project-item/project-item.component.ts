@@ -4,7 +4,7 @@ import { HttpService } from 'src/app/globalServices/http-service/http.service'
 @Component({
   selector: 'app-project-item',
   templateUrl: './project-item.component.html',
-  styleUrls: ['./project-item.component.scss']
+  styleUrls: ['./project-item.component.scss', '../admin-cp.shared.scss']
 })
 export class ProjectItemComponent implements OnInit {
 
