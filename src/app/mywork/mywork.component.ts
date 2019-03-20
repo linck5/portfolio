@@ -1,4 +1,5 @@
 import { Component, OnInit, NgModule } from '@angular/core';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core'
 import { MyworkPipe } from './mywork.pipe'
 
 
@@ -18,6 +19,8 @@ interface Work {
   styleUrls: ['./mywork.component.scss']
 })
 export class MyworkComponent implements OnInit {
+
+
 
 
 
@@ -64,10 +67,23 @@ export class MyworkComponent implements OnInit {
     }
   ]
 
+  isFirstOnLangChangeEvent = true;
+
   workType:string = "all";
 
-  constructor() { }
+  private onLangChange(event: LangChangeEvent) {
 
-  ngOnInit() { console.log(this.works[2].sourceCodeUrl) }
+    console.log('Lang changed');
+    console.log(event)
+    this.isFirstOnLangChangeEvent = false;
+  }
+
+  constructor(public translate: TranslateService) { }
+
+  ngOnInit() {
+    console.log(this.isFirstOnLangChangeEvent)
+    this.translate.onLangChange.subscribe(this.onLangChange.bind(this))
+    console.log(this.works[2].sourceCodeUrl)
+  }
 
 }
