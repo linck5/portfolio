@@ -1,5 +1,16 @@
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { HttpService } from 'src/app/globalServices/http-service/http.service'
+import { secondaryLanguages } from 'src/app/language-support'
+
+
+type ProjectFormI18n = {
+  title?: string,
+  description?: string,
+  imageUrl?: string,
+  workUrl?: string,
+  videoUrl?: string,
+  sourceCodeUrl?: string
+}
 
 class ProjectForm {
 
@@ -9,10 +20,17 @@ class ProjectForm {
     public month: number,
     public description: string,
     public type: string,
+    public i18n?: {[lang:string]: ProjectFormI18n},
     public imageUrl?: string,
     public workUrl?: string,
     public sourceCodeUrl?: string,
-  ) {  }
+
+  ) {
+    this.i18n = {}
+    for (let lang of secondaryLanguages){
+      this.i18n[lang] = {}
+    }
+  }
 
 }
 
@@ -37,14 +55,31 @@ export class AddProjectFormComponent implements OnInit {
     {name: 'workUrl', label: 'Project URL'},
     {name: 'videoUrl', label: 'Demo Video URL'},
     {name: 'sourceCodeUrl', label: 'Source Code URL'},
+    {name: 'i18n', languages: secondaryLanguages.map((lang) => {
+      return {
+        lang: lang,
+        template: [
+          {name: 'title', label: 'Title'},
+          {name: 'description', label: 'Description'},
+          {name: 'imageUrl', label: 'Image URL'},
+          {name: 'workUrl', label: 'Project URL'},
+          {name: 'videoUrl', label: 'Demo Video URL'},
+          {name: 'sourceCodeUrl', label: 'Source Code URL'},
+        ]
+      }
+    })},
   ]
 
   @Input() credentialsForm; //TODO type it
   @Output() projectAdded = new EventEmitter<string>();
 
-  constructor(private httpService: HttpService) { }
+  constructor(private httpService: HttpService) { console.log(this.projectForm)}
 
   ngOnInit() {
+  }
+
+  public langPlusTemplatePropertyName(lang, propName){
+    return `${lang}-${propName}`
   }
 
   async onSubmit() {
@@ -68,6 +103,7 @@ export class AddProjectFormComponent implements OnInit {
       "workUrl": form.workUrl,
       "videoUrl": form.videoUrl,
       "sourceCodeUrl": form.sourceCodeUrl,
+      "i18n": form.i18n,
     }
 
     return this.httpService.post('/projects',projectObj,this.credentialsForm)

@@ -2,9 +2,34 @@
   <h3>New</h3>
 
   <div class="form-line" *ngFor="let formRow of formTemplate">
-    <label for={{formRow.name}}>{{formRow.label}}</label>
-    <input type="text" id={{formRow.name}}
-           [(ngModel)]=projectForm[formRow.name] name={{formRow.name}}>
+
+    <div *ngIf="formRow.name != 'i18n'; then standardFieldsBlock else i18nBlock"></div>
+    <ng-template #standardFieldsBlock>
+      <label for={{formRow.name}}>{{formRow.label}}</label>
+      <input type="text" id={{formRow.name}}
+             [(ngModel)]=projectForm[formRow.name] name={{formRow.name}}>
+    </ng-template>
+
+    <ng-template #i18nBlock>
+      <h4>i18n</h4>
+      <div *ngFor="let langItem of formRow.languages">
+
+        <h5>{{langItem.lang}}</h5>
+
+        <div *ngFor="let langFormRow of langItem.template">
+
+          <label for="{{langPlusTemplatePropertyName(langItem.lang, langFormRow.name)}}">{{langFormRow.label}}</label>
+          <input type="text" id="{{langPlusTemplatePropertyName(langItem.lang, langFormRow.name)}}"
+                 [(ngModel)]=projectForm.i18n[langItem.lang][langFormRow.name] name="{{langPlusTemplatePropertyName(langItem.lang, langFormRow.name)}}">
+
+        </div>
+
+
+
+      </div>
+    </ng-template>
+
+
   </div>
 
   <div id="button-flex-container">

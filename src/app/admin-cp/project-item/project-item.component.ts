@@ -15,7 +15,7 @@ export class ProjectItemComponent implements OnInit {
   constructor(private httpService: HttpService) { }
 
   ngOnInit() {
-
+    console.log(this.project)
   }
 
   async onDelete(project) {
