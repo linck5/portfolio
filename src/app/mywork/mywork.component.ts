@@ -102,7 +102,7 @@ export class MyworkComponent implements OnInit {
             if(work.i18n && work.i18n[lang] && work.i18n[lang][prop]){
               newWork[prop] = work.i18n[lang][prop]
             }
-            else{
+            else if(work[prop]){
               newWork[prop] = work[prop]
             }
           }
