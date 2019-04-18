@@ -1,4 +1,4 @@
-import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter, SimpleChanges } from '@angular/core';
 import { HttpService } from 'src/app/globalServices/http-service/http.service'
 import { secondaryLanguages } from 'src/app/language-support'
 
@@ -12,7 +12,7 @@ type ProjectFormI18n = {
   sourceCodeUrl?: string
 }
 
-class ProjectForm {
+export class ProjectForm {
 
   constructor(
     public title: string,
@@ -42,6 +42,7 @@ class ProjectForm {
 export class AddProjectFormComponent implements OnInit {
 
   public projectForm:ProjectForm = new ProjectForm('', 2000, 1, '', 'web');
+  @Input() public copiedProjectData;
 
   public test = ""
 
@@ -76,6 +77,20 @@ export class AddProjectFormComponent implements OnInit {
   constructor(private httpService: HttpService) { console.log(this.projectForm)}
 
   ngOnInit() {
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if(changes.copiedProjectData && changes.copiedProjectData.currentValue){
+
+      let newFormData:any = {}
+      Object.assign(newFormData, changes.copiedProjectData.currentValue)
+
+      if(newFormData.date){
+        newFormData.year = new Date(newFormData.date).getFullYear()
+        newFormData.month = new Date(newFormData.date).getMonth() + 1
+      }
+      this.projectForm = newFormData
+    }
   }
 
   public langPlusTemplatePropertyName(lang, propName){

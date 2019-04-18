@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from 'src/app/globalServices/http-service/http.service';
-
+import { ProjectForm } from './add-project-form/add-project-form.component'
 
 
 @Component({
@@ -11,21 +11,17 @@ import { HttpService } from 'src/app/globalServices/http-service/http.service';
 export class AdminCpComponent implements OnInit {
 
   public projects;
-
   public credentialsForm = {username: '', password: ''};
-
-
-
-
+  public copiedProjectFromData;
 
   constructor(private httpService: HttpService) { }
 
-
-
   ngOnInit() {
-
     this.updateProjectsList()
+  }
 
+  projectCopiedEvent(project){
+    this.copiedProjectFromData = project
   }
 
   public async updateProjectsList(){

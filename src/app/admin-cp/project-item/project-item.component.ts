@@ -11,11 +11,16 @@ export class ProjectItemComponent implements OnInit {
   @Input() project:any
   @Input() credentialsForm; //TODO type it
   @Output() projectDeleted = new EventEmitter<string>();
+  @Output() projectCopied = new EventEmitter<string>();
 
   constructor(private httpService: HttpService) { }
 
   ngOnInit() {
     console.log(this.project)
+  }
+
+  onCopy(project){
+    this.projectCopied.emit();
   }
 
   async onDelete(project) {

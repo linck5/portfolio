@@ -20,6 +20,7 @@
 
   <app-add-project-form class="add-form"
      [credentialsForm]="credentialsForm"
+     [copiedProjectData]="copiedProjectFromData"
      (projectAdded)="updateProjectsList()">
   </app-add-project-form>
 
@@ -28,7 +29,8 @@
       <app-project-item
         [credentialsForm]="credentialsForm"
         [project]="project"
-        (projectDeleted)="updateProjectsList()">
+        (projectDeleted)="updateProjectsList()"
+        (projectCopied)="projectCopiedEvent(project)">
       </app-project-item>
     </li>
   </ul>
