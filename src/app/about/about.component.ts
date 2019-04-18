@@ -26,9 +26,7 @@ export class AboutComponent implements OnInit {
 
   }
 
-  switchLanguage(language: string) {
-    this.translate.use(language);
-  }
+
 
 
 }
