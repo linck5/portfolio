@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
 import { HttpService } from 'src/app/globalServices/http-service/http.service'
 
 @Component({
@@ -13,10 +13,26 @@ export class ProjectItemComponent implements OnInit {
   @Output() projectDeleted = new EventEmitter<string>();
   @Output() projectCopied = new EventEmitter<string>();
 
+  @ViewChild('collapsible') collapsible;
+  @ViewChild('content') content;
+
   constructor(private httpService: HttpService) { }
 
   ngOnInit() {
-    console.log(this.project)
+    this.addCollapsibleBehavior()
+  }
+
+  private addCollapsibleBehavior(){
+
+    this.collapsible.nativeElement.addEventListener("click", function(event) {
+      console.log(this.collapsible)
+      this.collapsible.nativeElement.classList.toggle("active");
+      if (this.content.nativeElement.style.display === "block") {
+        this.content.nativeElement.style.display = "none";
+      } else {
+        this.content.nativeElement.style.display = "block";
+      }
+    }.bind(this))
   }
 
   onCopy(project){

@@ -1,44 +1,50 @@
-
 <div class="item-container">
-  <img src={{project.imageUrl}} alt="">
 
-  <div class="project-attribute"><p><b>Title: </b>{{project.title}}</p></div>
-  <div class="project-attribute"><p><b>Type: </b>{{project.type}}</p></div>
-  <div class="project-attribute"><p><b>Description: </b>{{project.description}}</p></div>
-  <div class="project-attribute"><p><b>Img URL: </b>{{project.imageUrl}}</p></div>
-  <div class="project-attribute"><p><b>Src URL: </b>{{project.sourceCodeUrl}}</p></div>
-  <div class="project-attribute"><p><b>Proj URL: </b>{{project.workUrl}}</p></div>
-  <div class="project-attribute"><p><b>Vid URL: </b>{{project.videoUrl}}</p></div>
-  <div class="project-attribute"><p><b>Relevance: </b>{{project.relevance}}</p></div>
+  <button #collapsible class="collapsible">
+    <img src={{project.imageUrl}} alt="">
+    <div class="project-attribute"><p><b>Title: </b>{{project.title}}</p></div>
+    <div class="project-attribute"><p><b>ID: </b>{{project._id}}</p></div>
 
-  <div class="">
-    <h5>PT</h5>
+  </button>
+  <div #content class="content">
+    <div class="project-attribute"><p><b>Type: </b>{{project.type}}</p></div>
+    <div class="project-attribute"><p><b>Description: </b>{{project.description}}</p></div>
+    <div class="project-attribute"><p><b>Img URL: </b>{{project.imageUrl}}</p></div>
+    <div class="project-attribute"><p><b>Src URL: </b>{{project.sourceCodeUrl}}</p></div>
+    <div class="project-attribute"><p><b>Proj URL: </b>{{project.workUrl}}</p></div>
+    <div class="project-attribute"><p><b>Vid URL: </b>{{project.videoUrl}}</p></div>
+    <div class="project-attribute"><p><b>Relevance: </b>{{project.relevance}}</p></div>
 
-    <div class="project-attribute"><p><b>Title: </b>{{project.i18n.pt.title}}</p></div>
-    <div class="project-attribute"><p><b>Description: </b>{{project.i18n.pt.description}}</p></div>
-    <div class="project-attribute"><p><b>Img URL: </b>{{project.i18n.pt.imageUrl}}</p></div>
-    <div class="project-attribute"><p><b>Src URL: </b>{{project.i18n.pt.sourceCodeUrl}}</p></div>
-    <div class="project-attribute"><p><b>Proj URL: </b>{{project.i18n.pt.workUrl}}</p></div>
-    <div class="project-attribute"><p><b>Vid URL: </b>{{project.i18n.pt.videoUrl}}</p></div>
+    <div class="">
+      <h5>PT</h5>
+
+      <div class="project-attribute"><p><b>Title: </b>{{project.i18n.pt.title}}</p></div>
+      <div class="project-attribute"><p><b>Description: </b>{{project.i18n.pt.description}}</p></div>
+      <div class="project-attribute"><p><b>Img URL: </b>{{project.i18n.pt.imageUrl}}</p></div>
+      <div class="project-attribute"><p><b>Src URL: </b>{{project.i18n.pt.sourceCodeUrl}}</p></div>
+      <div class="project-attribute"><p><b>Proj URL: </b>{{project.i18n.pt.workUrl}}</p></div>
+      <div class="project-attribute"><p><b>Vid URL: </b>{{project.i18n.pt.videoUrl}}</p></div>
+    </div>
+
+    <div class="">
+      <h5>JP</h5>
+
+      <div class="project-attribute"><p><b>Title: </b>{{project.i18n.jp.title}}</p></div>
+      <div class="project-attribute"><p><b>Description: </b>{{project.i18n.jp.description}}</p></div>
+      <div class="project-attribute"><p><b>Img URL: </b>{{project.i18n.jp.imageUrl}}</p></div>
+      <div class="project-attribute"><p><b>Src URL: </b>{{project.i18n.jp.sourceCodeUrl}}</p></div>
+      <div class="project-attribute"><p><b>Proj URL: </b>{{project.i18n.jp.workUrl}}</p></div>
+      <div class="project-attribute"><p><b>Vid URL: </b>{{project.i18n.jp.videoUrl}}</p></div>
+    </div>
+
+    <div class="project-attribute"><p><b>Date: </b>{{project.date}}</p></div>
+  </div>
+  <div class="actions">
+    <button class="btn btn-outline-danger" type="button" name="button" (click)="onDelete(project)"><i class="fas fa-trash"></i></button>
+    <button class="btn btn-outline-secondary" type="button" name="button" (click)="onCopy(project)"><i class="fas fa-clone"></i></button>
   </div>
 
-  <div class="">
-    <h5>JP</h5>
 
-    <div class="project-attribute"><p><b>Title: </b>{{project.i18n.jp.title}}</p></div>
-    <div class="project-attribute"><p><b>Description: </b>{{project.i18n.jp.description}}</p></div>
-    <div class="project-attribute"><p><b>Img URL: </b>{{project.i18n.jp.imageUrl}}</p></div>
-    <div class="project-attribute"><p><b>Src URL: </b>{{project.i18n.jp.sourceCodeUrl}}</p></div>
-    <div class="project-attribute"><p><b>Proj URL: </b>{{project.i18n.jp.workUrl}}</p></div>
-    <div class="project-attribute"><p><b>Vid URL: </b>{{project.i18n.jp.videoUrl}}</p></div>
-  </div>
-
-
-
-  <button class="btn btn-outline-danger" type="button" name="button" (click)="onDelete(project)"><i class="fas fa-trash"></i></button>
-  <button class="btn btn-outline-secondary" type="button" name="button" (click)="onCopy(project)"><i class="fas fa-clone"></i></button>
-
-  <div class="project-attribute"><p><b>Date: </b>{{project.date}}</p></div>
 
 
 
