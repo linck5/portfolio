@@ -22,6 +22,7 @@ var projectSchema = new mongoose.Schema({
     pt: i18nAttributeSchema,
     jp: i18nAttributeSchema,
   },
+  relevance: {type: Number},
 })
 
 

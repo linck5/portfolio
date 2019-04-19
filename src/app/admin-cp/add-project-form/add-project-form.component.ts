@@ -24,6 +24,7 @@ export class ProjectForm {
     public imageUrl?: string,
     public workUrl?: string,
     public sourceCodeUrl?: string,
+    public relevance?:number
 
   ) {
     this.i18n = {}
@@ -56,6 +57,7 @@ export class AddProjectFormComponent implements OnInit {
     {name: 'workUrl', label: 'Project URL'},
     {name: 'videoUrl', label: 'Demo Video URL'},
     {name: 'sourceCodeUrl', label: 'Source Code URL'},
+    {name: 'relevance', label: 'Relevance'},
     {name: 'i18n', languages: secondaryLanguages.map((lang) => {
       return {
         lang: lang,
@@ -118,6 +120,7 @@ export class AddProjectFormComponent implements OnInit {
       "workUrl": form.workUrl,
       "videoUrl": form.videoUrl,
       "sourceCodeUrl": form.sourceCodeUrl,
+      "relevance": form.relevance,
       "i18n": form.i18n,
     }
 
