@@ -2,7 +2,7 @@
   background-color: #DDD;
   display: grid;
   height: 100vh;
-  grid-template-columns: minmax(0, 15vw)  minmax(400px, 1fr)  minmax(400px, 1fr) minmax(0, 15vw);
+  grid-template-columns: minmax(0, 15vw)  minmax(400px, 3fr)  minmax(400px, 2fr) minmax(0, 15vw);
   grid-template-rows: 52px 1fr;
   grid-template-areas:
     "header   header      header  header"
