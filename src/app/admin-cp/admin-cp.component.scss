@@ -17,21 +17,21 @@
 
 #layout > app-add-project-form {
   grid-area: add_form;
-  overflow: scroll;
+  overflow-y: scroll;
   background-color: #EEE;
 }
 
-#layout > ul::-webkit-scrollbar-track
+#layout > ul::-webkit-scrollbar-track, .add-form::-webkit-scrollbar-track
 {
 	background-color: inherit;
 }
 
-#layout > ul::-webkit-scrollbar
+#layout > ul::-webkit-scrollbar, .add-form::-webkit-scrollbar
 {
   width: 7px;
 }
 
-#layout > ul::-webkit-scrollbar-thumb
+#layout > ul::-webkit-scrollbar-thumb, .add-form::-webkit-scrollbar-thumb
 {
   background-color: #00000033;
 }

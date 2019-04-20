@@ -1,7 +1,4 @@
-h3 {
-}
-
-h3:after {
+.title-underline:after {
     content: "";
     display: block;
     margin-top: 0.5rem;
@@ -13,12 +10,31 @@ h3:after {
 form {
   padding: 10px;
   background-color: #FFF8;
-  margin: 2rem 2vw 0 2vw;
+  margin: 2rem 2vw 10vh 2vw;
 }
 
-form > div {
+.form-line, .i18n-line > div > div, .i18n-lang-section-line {
   display: flex;
   padding: 9px;
+}
+
+.i18n-line-section {
+  width: 100%;
+}
+
+.i18n-line-section > h4 {
+  padding: 14px;
+  padding-left: 24px;
+  font-size: 1.3rem;
+  background-color: #ADD8E633;
+  border-bottom: 2px solid #CCCCCC66;
+}
+
+.lang-section-title {
+  padding: 10px;
+  padding-left: 34px;
+  background-color: #CCCCCC3B;
+  margin-top: 20px;
 }
 
 form > div > label {
@@ -27,14 +43,18 @@ form > div > label {
 
 
 form > .form-line:nth-child(even) {
-  background-color: #CCCCDD44;
+  background-color: #7f9ea818;
 }
 
-form > div > label {
-  flex: 1;
+.i18n-lang-section-line:nth-child(odd) {
+  background-color: #FFFFFF88;
 }
 
-form > div > input {
+form > div > label, .i18n-lang-section-line > label {
+  width: 12rem;
+}
+
+form > div > input, .i18n-lang-section-line > input {
   flex: 1;
 }
 
@@ -44,5 +64,7 @@ form > div > input {
 }
 
 #button-flex-container > button {
-
+  font-size: 1.15rem;
+  margin-top: 14px;
+  padding: 4px 20px;
 }

@@ -1,5 +1,5 @@
 <form class="cp-card" (ngSubmit)="onSubmit()" #heroForm="ngForm">
-  <h3>New</h3>
+  <h3 class="title-underline">New</h3>
 
   <div class="form-line" *ngFor="let formRow of formTemplate">
 
@@ -11,22 +11,25 @@
     </ng-template>
 
     <ng-template #i18nBlock>
-      <h4>i18n</h4>
-      <div *ngFor="let langItem of formRow.languages">
+      <div class="i18n-line-section">
+        <h4>i18n</h4>
+        <div class="i18n-lang-section" *ngFor="let langItem of formRow.languages">
 
-        <h5>{{langItem.lang}}</h5>
+          <h5 class="lang-section-title">{{langItem.lang}}</h5>
 
-        <div *ngFor="let langFormRow of langItem.template">
+          <div class="i18n-lang-section-line" *ngFor="let langFormRow of langItem.template">
 
-          <label for="{{langPlusTemplatePropertyName(langItem.lang, langFormRow.name)}}">{{langFormRow.label}}</label>
-          <input type="text" id="{{langPlusTemplatePropertyName(langItem.lang, langFormRow.name)}}"
-                 [(ngModel)]=projectForm.i18n[langItem.lang][langFormRow.name] name="{{langPlusTemplatePropertyName(langItem.lang, langFormRow.name)}}">
+            <label for="{{langPlusTemplatePropertyName(langItem.lang, langFormRow.name)}}">{{langFormRow.label}}</label>
+            <input type="text" id="{{langPlusTemplatePropertyName(langItem.lang, langFormRow.name)}}"
+                   [(ngModel)]=projectForm.i18n[langItem.lang][langFormRow.name] name="{{langPlusTemplatePropertyName(langItem.lang, langFormRow.name)}}">
+
+          </div>
+
+
 
         </div>
-
-
-
       </div>
+
     </ng-template>
 
 
