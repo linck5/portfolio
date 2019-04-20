@@ -3,8 +3,8 @@
 }
 
 .collapsible {
-  background-color: #777;
-  color: white;
+  background-color: #EEE;
+  color: black;
   cursor: pointer;
   padding: 18px;
   width: 100%;
@@ -14,8 +14,20 @@
   font-size: 15px;
 }
 
-.active, .collapsible:hover {
-  background-color: #555;
+.collapsed-button {
+}
+.expanded-button {
+  background-color: #d2d7d8;
+}
+
+.collapsed-content {
+  height: 0;
+}
+.expanded-content {
+}
+
+.collapsible:hover {
+  background-color: #d2dde0;
 }
 
 .content {
@@ -38,8 +50,13 @@
 }
 
 button {
+
+}
+
+.actions > button {
   float: right;
-  margin-bottom: 10px;
+  margin: 10px 0;
+  margin-left: 10px;
 }
 
 img {
