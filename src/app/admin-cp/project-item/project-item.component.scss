@@ -41,7 +41,14 @@
   margin-top: 20px;
 }
 
-.project-attribute {
+.project-attribute > h4{
+  font-size: 1.3rem;
+  color: #444;
+}
+
+.project-attribute > h5{
+  font-size: 0.8rem;
+  color: #666;
 }
 
 .project-attribute > p{
