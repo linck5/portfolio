@@ -9,10 +9,15 @@ interface Work {
   imageUrl?:string;
   description:string;
   type:string;
+  date:Date;
   workUrl?:string;
   videoUrl?:string;
   sourceCodeUrl?:string;
+  relevance?:number;
+
 }
+
+type OrderByOption = {id: number; name: string}
 
 @Component({
   selector: 'app-mywork',
@@ -23,71 +28,58 @@ export class MyworkComponent implements OnInit {
 
 
 
+  orderbyOptions:Array<OrderByOption> = [
+      {id: 0, name: "Relevance"},
+      {id: 1, name: "Date"},
+      {id: 2, name: "Alphabelical"}
+  ];
+
+  selectedOrderBy:OrderByOption = this.orderbyOptions[0]
+
+
   worksData:any;
 
 
-  works:Work[] = [
-    {
-      title: "Gerador de Citações",
-      imageUrl: 'assets/images/quoteGeneratorThumbnail.png',
-      description: 'Página que randomiza citações famosas cada vez que o usuário clica no botão. Utilizando uma <a href="https://market.mashape.com/andruxnet/random-famous-quotes">API de citações</a> e a API do twitter para twittar a citação.',
-      type: 'web',
-      workUrl: 'assets/works/quoteGenerator/index.html',
-      sourceCodeUrl: 'http://codepen.io/linck5/pen/qRpoxo'
-    },
-    {
-      title: "Clima Local",
-      imageUrl: 'assets/images/localWeatherThumbnail.png',
-      description: 'Esta página utiliza uma <a href="https://openweathermap.org/current">API de clima</a> e <a href="https://freegeoip.net">outra de geolocalização</a> para mostrar ao usuário como está o clima no seu local. A versão para visualizar possui ícones ilustrativos com uma linguagem visual mais condizente do que a versão do código fonte.',
-      type: 'web',
-      workUrl: 'assets/works/localWeather/index.html',
-      sourceCodeUrl: 'http://codepen.io/linck5/pen/QdrYPQ'
-    },
-    {
-      title: "Este site",
-      description: 'Estou aprendendo muito fazendo este portfólio. Utilizo várias APIs, como Bootstrap para a barra de navegação e os blocos nesta seção, <a href="https://michalsnik.github.io/aos/">AoS</a> para animações, <a href="http://fontawesome.io/">Font Awesome</a> para alguns ícones e google maps para o mapa em baixo. Para o estilo utilizo SCSS e bibliotecas como <a href="http://include-media.com/">Include Media</a> para media queries mais padronizadas. A responsividade também está bem boa até onde pude testar.',
-      type: 'web',
-      sourceCodeUrl: 'https://github.com/linck5/portfolio_website'
-    },
-    {
-      title: "Barris",
-      imageUrl: 'assets/images/barrelsGameThumbnail.png',
-      description: 'Protótipo de jogo inspirado em certas partes dos jogos da série <a href="https://pt.wikipedia.org/wiki/Donkey_Kong">Donkey Kong</a>, onde o personagem deve pular de barril em barril. Feito com <a href="https://unity3d.com/pt">Unity</a>. Dificuldade aumenta progressivamente. Posição e movimentos dos barris são gerados proceduralmente.',
-      type: 'gamedev',
-      videoUrl: 'https://youtu.be/p8L5-tTSrJI',
-      sourceCodeUrl: 'https://github.com/linck5/barrels_game'
-    },
-    {
-      title: "Tower Defense",
-      imageUrl: 'assets/images/towerDefenseGameThumbnail.png',
-      description: 'Este protótipo feito em flash é uma demonstração de torres com ataque em área inteligentes em um <a href="https://pt.wikipedia.org/wiki/Tower_defense">tower defense</a>. Antes de atirar, as torres sempre calculam o ponto onde a área irá atingir mais inimigos simultâneamente, tirando máximo proveito de cada tiro.',
-      type: 'gamedev',
-      workUrl: 'assets/works/towerDefense/index.html',
-      videoUrl: 'https://youtu.be/SKwGC-QuiYU',
-      sourceCodeUrl: 'https://github.com/linck5/smart_Aoe_TD'
-    }
-  ]
+  works:Work[] = []
 
   isFirstOnLangChangeEvent = true;
 
   workType:string = "all";
 
+  private sortWorks(opt:OrderByOption){
+    switch(opt.id){
+      case 0:
+        this.works.sort((a,b) => b.relevance - a.relevance)
+        break
+      case 1:
+        this.works.sort((a,b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+        break
+      case 2:
+        this.works.sort((a,b) => a.title.localeCompare(b.title))
+    }
+  }
+
+  public orderbyHandler(){
+    console.log(this.selectedOrderBy.name)
+    this.sortWorks(this.selectedOrderBy)
+  }
+
   private onLangChange(event: LangChangeEvent) {
 
     if(!this.isFirstOnLangChangeEvent){
       this.updateWorks(event.lang)
+      this.sortWorks(this.selectedOrderBy)
     }
 
     this.isFirstOnLangChangeEvent = false;
   }
-
   private updateWorks(lang){
     console.log(lang)
 
     this.works = []
 
     const i18nProps = ["title", "imageUrl", "description", "type", "workUrl", "sourceCodeUrl"]
-    const otherProps = ["type", "date", ]
+    const otherProps = ["type", "date", "relevance"]
 
     for (let work of this.worksData) {
         let newWork:any = {}
@@ -112,6 +104,7 @@ export class MyworkComponent implements OnInit {
         }
         this.works.push(newWork)
     }
+
   }
 
   constructor(public translate: TranslateService, public httpService:HttpService) { }
@@ -119,11 +112,11 @@ export class MyworkComponent implements OnInit {
   async ngOnInit() {
     console.log(this.isFirstOnLangChangeEvent)
     this.translate.onLangChange.subscribe(this.onLangChange.bind(this))
-    console.log(this.works[2].sourceCodeUrl)
 
     this.worksData = await this.httpService.get("/projects").toPromise()
 
     this.updateWorks("en")
+    this.sortWorks(this.selectedOrderBy)
   }
 
 }
