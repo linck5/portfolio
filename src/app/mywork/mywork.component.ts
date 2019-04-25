@@ -17,7 +17,7 @@ interface Work {
 
 }
 
-type OrderByOption = {id: number; name: string}
+type OrderByOption = {id: number; label: string}
 
 @Component({
   selector: 'app-mywork',
@@ -29,9 +29,9 @@ export class MyworkComponent implements OnInit {
 
 
   orderbyOptions:Array<OrderByOption> = [
-      {id: 0, name: "Relevance"},
-      {id: 1, name: "Date"},
-      {id: 2, name: "Alphabelical"}
+      {id: 0, label: "Relevance"},
+      {id: 1, label: "Date"},
+      {id: 2, label: "Alphabelical"}
   ];
 
   selectedOrderBy:OrderByOption = this.orderbyOptions[0]
@@ -60,7 +60,6 @@ export class MyworkComponent implements OnInit {
   }
 
   public orderbyHandler(){
-    console.log(this.selectedOrderBy.name)
     this.sortWorks(this.selectedOrderBy)
   }
 
@@ -70,6 +69,9 @@ export class MyworkComponent implements OnInit {
       this.updateWorks(event.lang)
       this.sortWorks(this.selectedOrderBy)
     }
+
+    //this.orderbyOptions[0].label = event.translations.MyWork.OrderByRelevanceLabel
+    console.log(event)
 
     this.isFirstOnLangChangeEvent = false;
   }
@@ -114,6 +116,8 @@ export class MyworkComponent implements OnInit {
     this.translate.onLangChange.subscribe(this.onLangChange.bind(this))
 
     this.worksData = await this.httpService.get("/projects").toPromise()
+
+
 
     this.updateWorks("en")
     this.sortWorks(this.selectedOrderBy)

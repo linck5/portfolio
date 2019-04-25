@@ -1,0 +1,50 @@
+#admincp-projects-layout {
+  background-color: #DDD;
+  display: grid;
+  height: calc(100vh - 52px);
+  grid-template-columns: minmax(0, 15vw)  minmax(400px, 3fr)  minmax(400px, 2fr) minmax(0, 15vw);
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    "...      add_form    list    ...";
+}
+
+#admincp-projects-layout > app-add-project-form {
+  grid-area: add_form;
+  overflow-y: scroll;
+  background-color: #EEE;
+}
+
+#admincp-projects-layout > ul::-webkit-scrollbar-track, .add-form::-webkit-scrollbar-track
+{
+	background-color: inherit;
+}
+
+#admincp-projects-layout > ul::-webkit-scrollbar, .add-form::-webkit-scrollbar
+{
+  width: 7px;
+}
+
+#admincp-projects-layout > ul::-webkit-scrollbar-thumb, .add-form::-webkit-scrollbar-thumb
+{
+  background-color: #00000033;
+}
+
+#admincp-projects-layout > ul {
+  margin: 0;
+  background-color: #EEE;
+  grid-area: list;
+  padding: 20px;
+  overflow-y: scroll;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-auto-rows: auto;
+  align-items: start;
+  align-content: start;
+  grid-row-gap: 20px;
+  list-style-type: none;
+
+}
+
+#admincp-projects-layout > ul > li {
+  background-color: #FFFA;
+}

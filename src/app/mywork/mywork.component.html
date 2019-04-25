@@ -8,7 +8,7 @@
 
 
 <select [(ngModel)]="selectedOrderBy" (change)="orderbyHandler()">
-    <option *ngFor="let option of orderbyOptions" [ngValue]="option">{{option.name}}</option>
+    <option *ngFor="let option of orderbyOptions" [ngValue]="option">{{option.label}}</option>
 </select>
 
 <h1>{{workType}}</h1>

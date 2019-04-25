@@ -38,7 +38,7 @@ export class ProjectForm {
 @Component({
   selector: 'app-add-project-form',
   templateUrl: './add-project-form.component.html',
-  styleUrls: ['./add-project-form.component.scss', '../admin-cp.shared.scss']
+  styleUrls: ['./add-project-form.component.scss', '../../admin-cp.shared.scss']
 })
 export class AddProjectFormComponent implements OnInit {
 

@@ -2,11 +2,11 @@
   background-color: #DDD;
   display: grid;
   height: 100vh;
-  grid-template-columns: minmax(0, 15vw)  minmax(400px, 3fr)  minmax(400px, 2fr) minmax(0, 15vw);
+  grid-template-columns: 1fr;
   grid-template-rows: 52px 1fr;
   grid-template-areas:
-    "header   header      header  header"
-    "...      add_form    list    ...";
+    "header"
+    "content";
 }
 
 #layout > header {
@@ -15,46 +15,11 @@
   display: flex;
 }
 
-#layout > app-add-project-form {
-  grid-area: add_form;
-  overflow-y: scroll;
-  background-color: #EEE;
+#admincp-content {
+  grid-area: content;
 }
 
-#layout > ul::-webkit-scrollbar-track, .add-form::-webkit-scrollbar-track
-{
-	background-color: inherit;
-}
 
-#layout > ul::-webkit-scrollbar, .add-form::-webkit-scrollbar
-{
-  width: 7px;
-}
-
-#layout > ul::-webkit-scrollbar-thumb, .add-form::-webkit-scrollbar-thumb
-{
-  background-color: #00000033;
-}
-
-#layout > ul {
-  margin: 0;
-  background-color: #EEE;
-  grid-area: list;
-  padding: 20px;
-  overflow-y: scroll;
-  display: grid;
-  grid-template-columns: 100%;
-  grid-auto-rows: auto;
-  align-items: start;
-  align-content: start;
-  grid-row-gap: 20px;
-  list-style-type: none;
-
-}
-
-#layout > ul > li {
-  background-color: #FFFA;
-}
 
 #layout > header > h1{
   flex: 1;
@@ -92,7 +57,4 @@
 
 #layout > header > #credentials > form > #username {
   margin-right: 5px;
-}
-
-.credentials-input {
 }
