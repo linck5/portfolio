@@ -3,5 +3,10 @@
     "Title": "Who am I",
     "MainParagraph": "About text in english: placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder ",
     "Image": "My photo"
+  },
+  "MyWork": {
+    "OrderByRelevanceLabel": "Relevance",
+    "OrderByDateLabel": "Date",
+    "OrderByAlphabeticalLabel": "Alphabetical"
   }
 }

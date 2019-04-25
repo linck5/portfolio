@@ -21,6 +21,7 @@ import { MyworkPipe } from './mywork/mywork.pipe';
 import { ProjectItemComponent } from './admin-cp/projects/project-item/project-item.component';
 import { AddProjectFormComponent } from './admin-cp/projects/add-project-form/add-project-form.component';
 import { ProjectsComponent } from './admin-cp/projects/projects.component';
+import { ContentComponent } from './admin-cp/content/content.component';
 
 
 
@@ -54,7 +55,8 @@ export class ServerApiLoader implements TranslateLoader {
     MyworkPipe,
     ProjectItemComponent,
     AddProjectFormComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    ContentComponent
   ],
   imports: [
     BrowserModule,

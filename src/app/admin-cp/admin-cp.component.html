@@ -3,6 +3,22 @@
 
     <h1 id="header-title">Admin Control Panel</h1>
 
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link"
+           [routerLinkActive]="['active']"
+           [routerLink]="['./projects']">Projects
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"
+           [routerLinkActive]="['active']"
+           [routerLink]="['./content']">Content
+        </a>
+      </li>
+    </ul>
+
+
     <section id="credentials">
 
       <h3>Credentials</h3>
@@ -19,7 +35,8 @@
   </header>
 
   <div id="admincp-content">
-    <app-projects></app-projects>
+    <router-outlet></router-outlet>
+    <!-- <app-projects></app-projects> -->
   </div>
 
 
