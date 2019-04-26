@@ -1,5 +1,6 @@
 import { Component, Input, Output, OnInit, EventEmitter, SimpleChanges } from '@angular/core';
 import { HttpService } from 'src/app/globalServices/http-service/http.service'
+import { CredentialsService } from '../../credentials.service'
 import { secondaryLanguages } from 'src/app/language-support'
 
 
@@ -73,10 +74,9 @@ export class AddProjectFormComponent implements OnInit {
     })},
   ]
 
-  @Input() credentialsForm; //TODO type it
   @Output() projectAdded = new EventEmitter<string>();
 
-  constructor(private httpService: HttpService) { console.log(this.projectForm)}
+  constructor(private httpService: HttpService, private credentialsService:CredentialsService) { }
 
   ngOnInit() {
   }
@@ -122,7 +122,7 @@ export class AddProjectFormComponent implements OnInit {
       "i18n": form.i18n,
     }
 
-    return this.httpService.post('/projects', projectObj, this.credentialsForm)
+    return this.httpService.post('/projects', projectObj, this.credentialsService.credentials)
     .subscribe(data => console.log(data))
   }
 

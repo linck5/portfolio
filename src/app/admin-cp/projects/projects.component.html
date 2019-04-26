@@ -1,7 +1,6 @@
 
 <section id="admincp-projects-layout">
   <app-add-project-form class="add-form"
-     [credentialsForm]="credentialsForm"
      [copiedProjectData]="copiedProjectFromData"
      (projectAdded)="updateProjectsList()">
   </app-add-project-form>
@@ -9,7 +8,6 @@
   <ul>
     <li class="cp-card" *ngFor="let project of projects">
       <app-project-item
-        [credentialsForm]="credentialsForm"
         [project]="project"
         (projectDeleted)="updateProjectsList()"
         (projectCopied)="projectCopiedEvent(project)">

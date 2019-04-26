@@ -18,26 +18,19 @@
       </li>
     </ul>
 
-
     <section id="credentials">
-
       <h3>Credentials</h3>
-
       <form>
-            <input type="text" name="username" id="username" [(ngModel)]="credentialsForm.username" required>
-
-            <input type="password" name="password" id="password" [(ngModel)]="credentialsForm.password" required>
-
+        <input id="username" type="text"      (input)="usernameChanged($event)" placeholder="username" />
+        <input id="password" type="password"  (input)="passwordChanged($event)" placeholder="password" />
       </form>
-
     </section>
 
   </header>
 
   <div id="admincp-content">
     <router-outlet></router-outlet>
-    <!-- <app-projects></app-projects> -->
-  </div>
 
+  </div>
 
 </div>

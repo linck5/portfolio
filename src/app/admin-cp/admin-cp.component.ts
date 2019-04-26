@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { CredentialsService } from './credentials.service'
 
 
 
@@ -10,14 +11,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminCpComponent implements OnInit {
 
-  public credentialsForm = {username: '', password: ''};
-
-  constructor() { }
+  constructor(private credentialsService:CredentialsService) { }
 
   ngOnInit() {
   }
 
+  usernameChanged(event){
+    this.credentialsService.credentials.username = event.target.value;
+  }
 
+  passwordChanged(event){
+    this.credentialsService.credentials.password = event.target.value;
+  }
 
 
 

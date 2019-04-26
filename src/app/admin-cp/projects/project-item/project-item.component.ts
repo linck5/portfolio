@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
 import { HttpService } from 'src/app/globalServices/http-service/http.service'
+import { CredentialsService } from '../../credentials.service'
 
 @Component({
   selector: 'app-project-item',
@@ -9,14 +10,13 @@ import { HttpService } from 'src/app/globalServices/http-service/http.service'
 export class ProjectItemComponent implements OnInit {
 
   @Input() project:any
-  @Input() credentialsForm; //TODO type it
   @Output() projectDeleted = new EventEmitter<string>();
   @Output() projectCopied = new EventEmitter<string>();
 
   @ViewChild('collapsible') collapsible;
   @ViewChild('content') content;
 
-  constructor(private httpService: HttpService) { }
+  constructor(private httpService: HttpService, private credentialsService:CredentialsService) { }
 
   ngOnInit() {
     this.addCollapsibleBehavior()
@@ -46,7 +46,7 @@ export class ProjectItemComponent implements OnInit {
   }
 
   async onDelete(project) {
-    await this.httpService.delete(`/project/${project._id}`, this.credentialsForm)
+    await this.httpService.delete(`/project/${project._id}`, this.credentialsService.credentials)
     .subscribe()
     this.projectDeleted.emit();
   }
