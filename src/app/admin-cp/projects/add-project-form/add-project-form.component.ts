@@ -109,8 +109,6 @@ export class AddProjectFormComponent implements OnInit {
 
   private async postProjectFromForm(form){
 
-    console.log(this.credentialsForm)
-
     let projectObj = {
       "title": form.title,
       "date": this.yearMonth2Date(form.year, form.month),
@@ -124,7 +122,7 @@ export class AddProjectFormComponent implements OnInit {
       "i18n": form.i18n,
     }
 
-    return this.httpService.post('/projects',projectObj,this.credentialsForm)
+    return this.httpService.post('/projects', projectObj, this.credentialsForm)
     .subscribe(data => console.log(data))
   }
 

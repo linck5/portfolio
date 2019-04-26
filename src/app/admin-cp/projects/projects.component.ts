@@ -24,7 +24,6 @@ export class ProjectsComponent implements OnInit {
   }
 
   public async updateProjectsList(){
-    let res = await this.httpService.get('/projects').toPromise();
-    this.projects = res;
+    this.projects = await this.httpService.get('/projects').toPromise();
   }
 }
