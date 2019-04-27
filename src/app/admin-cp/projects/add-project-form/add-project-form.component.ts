@@ -1,5 +1,6 @@
 import { Component, Input, Output, OnInit, EventEmitter, SimpleChanges } from '@angular/core';
 import { HttpService } from 'src/app/globalServices/http-service/http.service'
+import { NotificationService, NotificationType } from 'src/app/globalServices/notification/notification.service'
 import { CredentialsService } from '../../credentials.service'
 import { secondaryLanguages } from 'src/app/language-support'
 
@@ -76,7 +77,11 @@ export class AddProjectFormComponent implements OnInit {
 
   @Output() projectAdded = new EventEmitter<string>();
 
-  constructor(private httpService: HttpService, private credentialsService:CredentialsService) { }
+  constructor(
+    private httpService: HttpService,
+    private credentialsService:CredentialsService,
+    private notificationService:NotificationService
+  ) { }
 
   ngOnInit() {
   }
@@ -100,13 +105,31 @@ export class AddProjectFormComponent implements OnInit {
   }
 
   async onSubmit() {
-    await this.postProjectFromForm(this.projectForm)
-
-    this.projectAdded.emit('a');
-
+    let res:any = await this.buildPostProjectFromFormObservable(this.projectForm)
+    .toPromise()
+    .catch((err)=>{
+      console.log(err)
+      this.notificationService.notify(
+        `Error: ${err.status} ${err.statusText}. See console for more info.`,
+        NotificationType.Danger, 2.5)
+    })
+    if(res){
+      if(res.errors){
+        console.log(res)
+        this.notificationService.notify(
+          `Error: ${res.message} See console for more info.`,
+          NotificationType.Warning, 2.5)
+      }
+      else{
+        this.notificationService.notify(
+          "Success. Project uploaded.",
+          NotificationType.Success)
+        this.projectAdded.emit('a');
+      }
+    }
   }
 
-  private async postProjectFromForm(form){
+  private buildPostProjectFromFormObservable(form){
 
     let projectObj = {
       "title": form.title,
@@ -122,7 +145,6 @@ export class AddProjectFormComponent implements OnInit {
     }
 
     return this.httpService.post('/projects', projectObj, this.credentialsService.credentials)
-    .subscribe(data => console.log(data))
   }
 
 

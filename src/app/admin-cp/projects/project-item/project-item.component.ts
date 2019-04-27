@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
 import { HttpService } from 'src/app/globalServices/http-service/http.service'
+import { NotificationService, NotificationType } from 'src/app/globalServices/notification/notification.service'
 import { CredentialsService } from '../../credentials.service'
 
 @Component({
@@ -16,7 +17,11 @@ export class ProjectItemComponent implements OnInit {
   @ViewChild('collapsible') collapsible;
   @ViewChild('content') content;
 
-  constructor(private httpService: HttpService, private credentialsService:CredentialsService) { }
+  constructor(
+    private httpService: HttpService,
+    private credentialsService:CredentialsService,
+    private notificationService:NotificationService
+  ) { }
 
   ngOnInit() {
     this.addCollapsibleBehavior()
@@ -45,9 +50,21 @@ export class ProjectItemComponent implements OnInit {
   }
 
   async onDelete(project) {
-    await this.httpService.delete(`/project/${project._id}`, this.credentialsService.credentials)
-    .subscribe()
-    this.projectDeleted.emit();
+    let res = await this.httpService.delete(`/project/${project._id}`, this.credentialsService.credentials)
+    .toPromise()
+    .catch((err)=>{
+      console.log(err)
+      this.notificationService.notify(
+        `Error: ${err.status} ${err.statusText}. See console for more info.`,
+        NotificationType.Danger, 2.5)
+    })
+    if(res){
+      console.log(this.project)
+      this.notificationService.notify(
+        "Success. Project deleted. Deleted doc is on the console.",
+        NotificationType.Success, 2)
+      this.projectDeleted.emit();
+    }
   }
 
 }

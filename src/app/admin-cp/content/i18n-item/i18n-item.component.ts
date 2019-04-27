@@ -40,7 +40,7 @@ export class I18nItemComponent implements OnInit {
   }
 
   reset(){
-    this.notificationService.notify("Document has been reset.", NotificationType.Info)
+
     this.editor.set(this.unmodifiedI18nItem)
     this.jsonEditorContentChanged = false;
   }
@@ -52,12 +52,22 @@ export class I18nItemComponent implements OnInit {
       '/i18n/' + i18nToPost._lang,
       i18nToPost,
       this.credentialsService.credentials
-    ).toPromise();
+    ).toPromise()
+    .catch((err)=>{
+      console.log(err)
+      this.notificationService.notify(
+        `Error: ${err.status} ${err.statusText}. See console for more info.`,
+        NotificationType.Danger, 2.5)
+    })
+    if(res){
+      this.notificationService.notify(
+        "Success. Content uploaded.",
+        NotificationType.Success)
+      this.unmodifiedI18nItem = i18nToPost
+      this.jsonEditorContentChanged = false
+    }
 
-    console.log(res)
 
-    this.unmodifiedI18nItem = i18nToPost
-    this.jsonEditorContentChanged = false
   }
 
 }
