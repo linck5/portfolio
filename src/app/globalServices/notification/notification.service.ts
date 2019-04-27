@@ -20,14 +20,15 @@ export class NotificationService {
 
   constructor() { }
 
-  public notify(text:string, type:NotificationType) {
+  public notify(text:string, type:NotificationType, delayFactor?:number) {
+    if(!delayFactor) delayFactor = 1;
     $.notify({
       // options
       message: text
     },{
       // settings
       type: type,
-      delay: 2000,
+      delay: 2000 * delayFactor,
       timer: 100,
       allow_dismiss: false,
       mouse_over: 'pause',
