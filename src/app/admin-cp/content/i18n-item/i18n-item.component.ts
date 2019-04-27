@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild, Input } from '@angular/core'
 import { HttpService } from 'src/app/globalServices/http-service/http.service'
 import { CredentialsService } from '../../credentials.service'
 import JSONEditor, { JSONEditorOptions } from 'jsoneditor'
+declare var jquery: any;
+declare var $: any;
 
 @Component({
   selector: 'app-i18n-item',
@@ -34,6 +36,13 @@ export class I18nItemComponent implements OnInit {
   }
 
   reset(){
+    $.notify({
+    	// options
+    	message: 'Hello World'
+    },{
+    	// settings
+    	type: 'danger'
+    });
     this.editor.set(this.unmodifiedI18nItem)
     this.jsonEditorContentChanged = false;
   }
