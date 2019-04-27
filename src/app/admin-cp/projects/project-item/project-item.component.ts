@@ -28,7 +28,6 @@ export class ProjectItemComponent implements OnInit {
     this.content.nativeElement.classList.add("collapesd-content");
 
     this.collapsible.nativeElement.addEventListener("click", function(event) {
-      console.log(this.collapsible)
       this.collapsible.nativeElement.classList.toggle("expanded-button");
       this.collapsible.nativeElement.classList.toggle("collapsed-button");
       this.content.nativeElement.classList.toggle("expanded-content");

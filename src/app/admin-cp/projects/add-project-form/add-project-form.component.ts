@@ -100,7 +100,6 @@ export class AddProjectFormComponent implements OnInit {
   }
 
   async onSubmit() {
-    console.log(this.projectForm)
     await this.postProjectFromForm(this.projectForm)
 
     this.projectAdded.emit('a');
