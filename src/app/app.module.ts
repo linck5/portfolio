@@ -22,6 +22,7 @@ import { ProjectItemComponent } from './admin-cp/projects/project-item/project-i
 import { AddProjectFormComponent } from './admin-cp/projects/add-project-form/add-project-form.component';
 import { ProjectsComponent } from './admin-cp/projects/projects.component';
 import { ContentComponent } from './admin-cp/content/content.component';
+import { I18nItemComponent } from './admin-cp/content/i18n-item/i18n-item.component';
 
 
 
@@ -56,7 +57,8 @@ export class ServerApiLoader implements TranslateLoader {
     ProjectItemComponent,
     AddProjectFormComponent,
     ProjectsComponent,
-    ContentComponent
+    ContentComponent,
+    I18nItemComponent
   ],
   imports: [
     BrowserModule,

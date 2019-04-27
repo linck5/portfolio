@@ -1,6 +1,7 @@
-
-<p>
-  content works!
-</p>
-
-<div id="jsoneditor" style="width: 400px; height: 400px;"></div>
+<ul>
+  <li class="cp-card" *ngFor="let i18nItem of i18nItems">
+    <app-i18n-item
+      [unmodifiedI18nItem]="i18nItem">
+    </app-i18n-item>
+  </li>
+</ul>

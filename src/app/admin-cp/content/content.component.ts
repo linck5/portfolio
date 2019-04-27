@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import JSONEditor, { JSONEditorOptions } from 'jsoneditor'
+import { HttpService } from 'src/app/globalServices/http-service/http.service';
 
 
 @Component({
@@ -8,26 +9,11 @@ import JSONEditor, { JSONEditorOptions } from 'jsoneditor'
   styleUrls: ['./content.component.scss']
 })
 export class ContentComponent implements OnInit {
+  i18nItems
 
-  constructor() { }
+  constructor(private httpService: HttpService) {}
 
-  ngOnInit() {
-    var container = document.getElementById("jsoneditor");
-    var options:JSONEditorOptions = {
-        mode: 'tree'
-    };
-    var editor = new JSONEditor(container, options);
-
-
-    var json = {
-      "Array": [1, 2, 3],
-      "Boolean": true,
-      "Null": null,
-      "Number": 123,
-      "Object": {"a": "b", "c": "d"},
-      "String": "Hello World"
-    };
-    editor.set(json);
+  async ngOnInit() {
+    this.i18nItems = await this.httpService.get('/i18n').toPromise();
   }
-
 }
