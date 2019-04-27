@@ -1,0 +1,22 @@
+.jsoneditor-container {
+  height: 500px;
+  width: 100%;
+  margin-top: 10px;
+  padding-right: 8px;
+}
+
+.button-container {
+  position: relative;
+  height: 0;
+  top: -50px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+button {
+  height: 38px;
+  width: 52px;
+  margin-right: 20px;
+
+}

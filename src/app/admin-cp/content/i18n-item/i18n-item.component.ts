@@ -21,6 +21,8 @@ export class I18nItemComponent implements OnInit {
   ngOnInit() {
     let container = this.jsoneditorcontainer.nativeElement
     let options:JSONEditorOptions = {
+        language: 'en',
+        mainMenuBar: false,
         mode: 'tree',
         onChange: () => {
           this.jsonEditorContentChanged = true;

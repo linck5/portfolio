@@ -1,4 +1,6 @@
-<div #jsoneditorcontainer style="width: 400px; height: 400px;"></div>
+<div class="jsoneditor-container" #jsoneditorcontainer></div>
 
-<button type="button" (click)="reset()"  [disabled]="!jsonEditorContentChanged">Reset</button>
-<button type="button" (click)="submit()" [disabled]="!jsonEditorContentChanged">Submit</button>
+<div class="button-container">
+  <button class="btn btn-secondary"  type="button" (click)="reset()"  [disabled]="!jsonEditorContentChanged"><i class="fas fa-undo"></i></button>
+  <button class="btn btn-primary"  type="button" (click)="submit()" [disabled]="!jsonEditorContentChanged"><i class="fas fa-cloud-upload-alt"></i></button>
+</div>
