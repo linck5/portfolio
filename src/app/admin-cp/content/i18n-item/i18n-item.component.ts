@@ -1,14 +1,14 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core'
 import { HttpService } from 'src/app/globalServices/http-service/http.service'
+import { NotificationService, NotificationType } from 'src/app/globalServices/notification/notification.service'
 import { CredentialsService } from '../../credentials.service'
 import JSONEditor, { JSONEditorOptions } from 'jsoneditor'
-declare var jquery: any;
-declare var $: any;
+
 
 @Component({
   selector: 'app-i18n-item',
   templateUrl: './i18n-item.component.html',
-  styleUrls: ['./i18n-item.component.scss']
+  styleUrls: ['./i18n-item.component.scss'/*, '../../../../../node_modules/animate.css/animate.css'*/]
 })
 export class I18nItemComponent implements OnInit {
 
@@ -18,7 +18,11 @@ export class I18nItemComponent implements OnInit {
   jsonEditorContentChanged = false;
   editor: JSONEditor
 
-  constructor(private httpService: HttpService, private credentialsService:CredentialsService) { }
+  constructor(
+    private httpService: HttpService,
+    private credentialsService:CredentialsService,
+    private notificationService:NotificationService
+  ) { }
 
   ngOnInit() {
     let container = this.jsoneditorcontainer.nativeElement
@@ -36,13 +40,7 @@ export class I18nItemComponent implements OnInit {
   }
 
   reset(){
-    $.notify({
-    	// options
-    	message: 'Hello World'
-    },{
-    	// settings
-    	type: 'danger'
-    });
+    this.notificationService.notify("Document has been reset.", NotificationType.Info)
     this.editor.set(this.unmodifiedI18nItem)
     this.jsonEditorContentChanged = false;
   }
