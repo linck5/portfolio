@@ -2,9 +2,9 @@
   ========= My work =========
 </p>
 
-<input type="radio" [(ngModel)]="workType" name="workType" value="all"> All<br>
-<input type="radio" [(ngModel)]="workType" name="workType" value="web" > Web<br>
-<input type="radio" [(ngModel)]="workType" name="workType" value="gamedev"> Game Dev<br>
+<input type="radio" [(ngModel)]="workType" name="workType" value="all"> {{'MyWork.Filter.All'|translate}}<br>
+<input type="radio" [(ngModel)]="workType" name="workType" value="web" > {{'MyWork.Filter.Web'|translate}}<br>
+<input type="radio" [(ngModel)]="workType" name="workType" value="gamedev"> {{'MyWork.Filter.GameDev'|translate}}<br>
 
 
 <select [(ngModel)]="selectedOrderBy" (change)="orderbyHandler()">
