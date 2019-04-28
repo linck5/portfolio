@@ -29,9 +29,9 @@ export class MyworkComponent implements OnInit {
 
 
   orderbyOptions:Array<OrderByOption> = [
-      {id: 0, label: "", path: ["MyWork", "OrderByRelevanceLabel"]},
-      {id: 1, label: "", path: ["MyWork", "OrderByDateLabel"]},
-      {id: 2, label: "", path: ["MyWork", "OrderByAlphabeticalLabel"]}
+      {id: 0, label: "", path: ["MyWork", "OrderBy", "RelevanceLabel"]},
+      {id: 1, label: "", path: ["MyWork", "OrderBy", "DateLabel"]},
+      {id: 2, label: "", path: ["MyWork", "OrderBy", "AlphabeticalLabel"]}
   ];
 
   selectedOrderBy:OrderByOption = this.orderbyOptions[0]
@@ -71,7 +71,7 @@ export class MyworkComponent implements OnInit {
     }
 
     for (let opt of this.orderbyOptions) {
-        opt.label = event.translations[opt.path[0]][opt.path[1]]
+        opt.label = event.translations[opt.path[0]][opt.path[1]][opt.path[2]]
     }
 
     //this.orderbyOptions[0].label = event.translations.MyWork.OrderByRelevanceLabel
