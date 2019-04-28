@@ -17,7 +17,7 @@ interface Work {
 
 }
 
-type OrderByOption = {id: number; label: string}
+type OrderByOption = {id: number; label: string, path:string[]}
 
 @Component({
   selector: 'app-mywork',
@@ -29,9 +29,9 @@ export class MyworkComponent implements OnInit {
 
 
   orderbyOptions:Array<OrderByOption> = [
-      {id: 0, label: "Relevance"},
-      {id: 1, label: "Date"},
-      {id: 2, label: "Alphabelical"}
+      {id: 0, label: "", path: ["MyWork", "OrderByRelevanceLabel"]},
+      {id: 1, label: "", path: ["MyWork", "OrderByDateLabel"]},
+      {id: 2, label: "", path: ["MyWork", "OrderByAlphabeticalLabel"]}
   ];
 
   selectedOrderBy:OrderByOption = this.orderbyOptions[0]
@@ -68,6 +68,10 @@ export class MyworkComponent implements OnInit {
     if(!this.isFirstOnLangChangeEvent){
       this.updateWorks(event.lang)
       this.sortWorks(this.selectedOrderBy)
+    }
+
+    for (let opt of this.orderbyOptions) {
+        opt.label = event.translations[opt.path[0]][opt.path[1]]
     }
 
     //this.orderbyOptions[0].label = event.translations.MyWork.OrderByRelevanceLabel
