@@ -5,9 +5,34 @@
 }
 
 #workType-radios {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
   display: flex;
+  align-items: stretch;
 }
 
-#list-settings > select {
+#workType-radios > li > input[type=radio] {
+  display: none;
+}
 
+#workType-radios > li > input[type=radio] ~ label {
+  padding: 20px;
+  margin: 8px 0 8px 0;
+  color: #EEE;
+  background-color: #333;
+}
+
+#workType-radios > li > input[type=radio]:checked ~ label {
+  margin: 0;
+  height: 100%;
+  color: #333;
+  background-color: #EEE;
+}
+
+
+#workType-select {
+  background: url(http://www.stackoverflow.com/favicon.ico) 96% / 15% no-repeat #eee;
+  appearance: none;
+  border: none;
 }

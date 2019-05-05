@@ -2,14 +2,26 @@
 
 <div id="list-settings">
 
-  <div id="workType-radios">
-    <input type="radio" [(ngModel)]="workType" name="workType" value="all"> {{'MyWork.Filter.All'|translate}}<br>
-    <input type="radio" [(ngModel)]="workType" name="workType" value="AI" > {{'MyWork.Filter.AI'|translate}}<br>
-    <input type="radio" [(ngModel)]="workType" name="workType" value="web" > {{'MyWork.Filter.Web'|translate}}<br>
-    <input type="radio" [(ngModel)]="workType" name="workType" value="gamedev"> {{'MyWork.Filter.GameDev'|translate}}<br>
-  </div>
+  <ul id="workType-radios">
+    <li>
+      <input type="radio" [(ngModel)]="workType" id="workType-all" name="workType" value="all" checked>
+      <label for="workType-all">{{'MyWork.Filter.All'|translate}}</label>
+    </li>
+    <li>
+      <input type="radio" [(ngModel)]="workType" id="workType-ai" name="workType" value="AI" >
+      <label for="workType-ai">{{'MyWork.Filter.AI'|translate}}</label>
+    </li>
+    <li>
+      <input type="radio" [(ngModel)]="workType" id="workType-web" name="workType" value="web" >
+      <label for="workType-web">{{'MyWork.Filter.Web'|translate}}</label>
+    </li>
+    <li>
+      <input type="radio" [(ngModel)]="workType" id="workType-gamedev" name="workType" value="gamedev">
+      <label for="workType-gamedev">{{'MyWork.Filter.GameDev'|translate}}</label>
+    </li>
+  </ul>
 
-  <select [(ngModel)]="selectedOrderBy" (change)="orderbyHandler()">
+  <select id="workType-select" [(ngModel)]="selectedOrderBy" (change)="orderbyHandler()">
       <option *ngFor="let option of orderbyOptions" [ngValue]="option">{{option.label}}</option>
   </select>
 </div>
