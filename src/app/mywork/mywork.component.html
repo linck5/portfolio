@@ -28,6 +28,6 @@
 
 <p>{{workType}}</p>
 
-<ul>
+<ul id="worksUL">
   <li *ngFor="let work of works | mywork:workType"><app-mywork-item [work]="work"></app-mywork-item></li>
 </ul>
