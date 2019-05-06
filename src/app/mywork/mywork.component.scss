@@ -36,3 +36,15 @@
   appearance: none;
   border: none;
 }
+
+#worksUL {
+  list-style-type: none;
+  padding: 0;
+
+  display: flex;
+  flex-flow: row wrap;
+}
+
+#worksUL > li {
+  flex: 0/*controlled by js*/;
+}
