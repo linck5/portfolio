@@ -1,15 +1,22 @@
+<div class="myWorkItemWrapper">
+  <div #myworkItem class="myworkItem">
+    <img *ngIf='work.imageUrl !== undefined' src={{work.imageUrl}} alt="imagem ilustrativa">
 
-<div #myworkItem>
-  <img *ngIf='work.imageUrl !== undefined' src={{work.imageUrl}} alt="imagem ilustrativa">
+    <p class="date">{{work.date}}</p>
+
+    <div class="content">
+      <h3>{{work.title}}</h3>
+      <p [innerHTML]="work.description"></p>
+
+      <!-- <p [innerHTML]="work.relevance"></p> -->
+    </div>
+
+    <div class="buttons">
+      <a *ngIf='work.workUrl != undefined' href={{work.workUrl}} target="_blank" role="button">Visualizar Página</a>
+      <a *ngIf='work.videoUrl != undefined' href={{work.videoUrl}} target="_blank" role="button">Ver Vídeo</a>
+      <a *ngIf='work.sourceCodeUrl != undefined' href={{work.sourceCodeUrl}} target="_blank" role="button">Código Fonte Online</a>
+    </div>
 
 
-  <h3>{{work.title}}</h3>
-  <p [innerHTML]="work.description"></p>
-
-  <p [innerHTML]="work.relevance"></p>
-
-  <a *ngIf='work.workUrl != undefined' href={{work.workUrl}} target="_blank" role="button">Visualizar Página</a>
-  <a *ngIf='work.videoUrl != undefined' href={{work.videoUrl}} target="_blank" role="button">Ver Vídeo</a>
-  <a *ngIf='work.sourceCodeUrl != undefined' href={{work.sourceCodeUrl}} target="_blank" role="button">Código Fonte Online</a>
-
+  </div>
 </div>

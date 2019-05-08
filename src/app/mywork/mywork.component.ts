@@ -115,7 +115,7 @@ export class MyworkComponent implements OnInit, AfterViewInit {
       let flexBasisPerc  = i < liLackingOne ?
         100 / (g.columns - 1) : 100 / g.columns
 
-      li.parentElement.parentElement.style.flex = `1 0 ${flexBasisPerc}%`
+      li.parentElement.parentElement.parentElement.style.flex = `1 0 ${flexBasisPerc}%`
     }
   }
 
