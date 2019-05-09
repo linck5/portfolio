@@ -2,7 +2,7 @@
   <div #myworkItem class="myworkItem">
     <img *ngIf='work.imageUrl !== undefined' src={{work.imageUrl}} alt="imagem ilustrativa">
 
-    <p class="date">{{work.date}}</p>
+    <p class="date">{{work.formattedDate}}</p>
 
     <div class="content">
       <h3>{{work.title}}</h3>
