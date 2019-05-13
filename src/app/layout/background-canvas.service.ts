@@ -15,12 +15,19 @@ hexagon_max_absolute_speed = 0.05;
 hexagon_space_between = 8;
 hexagon_line_width = 2;
 hexagon_color = '#022';
+expectedPageHeight = 13000;
+expectedPageHeightLeeWay = 2000;
 
 
 canvas;
 ctx;
-hexagons = [];
+canvasId;
+canvasContainerId;
+getPageHeight;
 requestAnimFrame;
+hexagons = [];
+refreshing = false;
+currHeight = null;
 
 
 s3p3 = Math.sqrt(3);
@@ -28,8 +35,15 @@ s3p3 = Math.sqrt(3);
 
   constructor() { }
 
+  refresh() {
+    this.refreshing = true;
+  }
 
-  init() {
+  init(canvasId:string, canvasContainerId:string, getPageHeight:()=>number) {
+
+    this.canvasId = canvasId;
+    this.canvasContainerId = canvasContainerId;
+    this.getPageHeight = getPageHeight;
 
     this.requestAnimFrame =
       window.requestAnimationFrame       ||
@@ -38,14 +52,41 @@ s3p3 = Math.sqrt(3);
         window.setTimeout(callback, 1000 / 60);
       };
 
-    console.log("initttttttttt")
-    console.log("window > ", window)
-    console.log("this.requestAnimFrame > ", this.requestAnimFrame)
-    this.canvas = document.getElementById('bg-canvas');
+    window.addEventListener('resize', this.refresh.bind(this))
+
+    setInterval(()=>{
+
+      if(this.currHeight < this.getPageHeight()){
+        console.warn("page height was higher than expected")
+        this.currHeight = this.getPageHeight() + this.expectedPageHeightLeeWay;
+        this.refresh();
+      }
+
+      if($(`#${this.canvasContainerId}`).css('height') != this.getPageHeight() + 'px'){
+        $(`#${this.canvasContainerId}`).css('height', this.getPageHeight() + 'px')
+      }
+    }, 500)
+
+
+    this.start()
+  }
+
+
+
+  start() {
+
+
+
+    this.canvas = document.getElementById(this.canvasId);
     this.canvas.width = window.innerWidth;
-    this.canvas.height = $("#end-of-page").position().top
-    //this.canvas.style.width = this.canvas.width + 'px';
-    this.canvas.style.height = this.canvas.height + 'px';
+
+    if(!this.currHeight){
+      this.currHeight = this.expectedPageHeight + this.expectedPageHeightLeeWay;
+    }
+    this.canvas.height = this.currHeight
+    this.canvas.style.height = this.currHeight + 'px'
+
+
     this.ctx = this.canvas.getContext('2d');
 
     this.ctx.globalCompositeOperation = "source-over";
@@ -56,7 +97,7 @@ s3p3 = Math.sqrt(3);
     for(var x = 0;x<hw;x++)
       for(var y=0;y<hh;y++)
         this.addHexagon(
-           this.hexagon_radius + this.hexagon_space_between + ( 1.5 * this.hexagon_radius + this.hexagon_space_between * 2 ) * x,
+          this.hexagon_radius + this.hexagon_space_between + ( 1.5 * this.hexagon_radius + this.hexagon_space_between * 2 ) * x,
           this.s3p3 * this.hexagon_radius / 2 + this.hexagon_space_between + ( this.s3p3 * this.hexagon_radius + this.hexagon_space_between * 2 ) * y - ( x%2 ? this.s3p3 * this.hexagon_radius / 2 : 0 ),
           {
             l: 0
@@ -67,10 +108,20 @@ s3p3 = Math.sqrt(3);
 
     this.loop();
 
+
   }
+
+
+
 
   private loop() {
 
+    if(this.refreshing){
+      this.refreshing = false;
+      this.hexagons = [];
+      this.start();
+      return;
+    }
 
     this.requestAnimFrame(this.loop.bind(this));
 
@@ -149,10 +200,5 @@ s3p3 = Math.sqrt(3);
     this.hexagons[hex_index] = hex;
 
   }
-
-  // window.onload = function() {
-  //   this.init();
-  // };
-
 
 }
