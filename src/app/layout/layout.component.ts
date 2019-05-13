@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BackgroundCanvasService } from './background-canvas.service'
 
 @Component({
   selector: 'app-layout',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LayoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private bg:BackgroundCanvasService) { }
 
   ngOnInit() {
+    this.bg.init();
   }
+
 
 }
