@@ -11,8 +11,8 @@ export class BackgroundCanvasService {
 
 
 hexagon_radius = 80;
-hexagon_max_absolute_speed = 0.05;
-hexagon_space_between = 8;
+hexagon_max_absolute_speed = 0.1;
+hexagon_space_between = 3;
 hexagon_line_width = 2;
 hexagon_color = '#022';
 expectedPageHeight = 13000;
