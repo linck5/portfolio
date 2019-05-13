@@ -28,6 +28,7 @@ requestAnimFrame;
 hexagons = [];
 refreshing = false;
 currHeight = null;
+resizeRefreshScheduled = false;
 
 
 s3p3 = Math.sqrt(3);
@@ -52,7 +53,15 @@ s3p3 = Math.sqrt(3);
         window.setTimeout(callback, 1000 / 60);
       };
 
-    window.addEventListener('resize', this.refresh.bind(this))
+    window.addEventListener('resize', ()=>{
+      if(!this.resizeRefreshScheduled){
+        this.resizeRefreshScheduled = true;
+        setTimeout(()=>{
+          this.refresh();
+          this.resizeRefreshScheduled = false;
+        }, 500)
+      }
+    })
 
     setInterval(()=>{
 
