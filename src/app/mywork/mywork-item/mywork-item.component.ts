@@ -5,7 +5,7 @@ import { Language } from 'src/app/language-support'
 @Component({
   selector: 'app-mywork-item',
   templateUrl: './mywork-item.component.html',
-  styleUrls: ['./mywork-item.component.scss']
+  styleUrls: ['./mywork-item.component.scss', './button.scss']
 })
 export class MyworkItemComponent implements OnInit {
 
