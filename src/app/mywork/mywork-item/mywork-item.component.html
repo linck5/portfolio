@@ -1,7 +1,10 @@
 <div class="myWorkItemWrapper">
 
   <div #myworkItem class="myworkItem">
-    <img *ngIf='work.imageUrl !== undefined' src={{work.imageUrl}} alt="imagem ilustrativa">
+    <div class="img-container">
+      <img *ngIf='work.imageUrl !== undefined' src={{work.imageUrl}} alt="imagem ilustrativa">
+    </div>
+
 
     <p class="date">{{work.formattedDate}}</p>
 
