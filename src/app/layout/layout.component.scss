@@ -1,15 +1,16 @@
 
 #bg-canvas-container {
   position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -100;
   width: 100%;
   height: 0; //controlled by js
   overflow: hidden;
 }
 
 #bg-canvas {
-  top: 0;
-  left: 0;
-  z-index: -1;
+
   width: 100%;
 
 }
