@@ -13,3 +13,26 @@
   display: flex;
   flex-direction: row;
 }
+
+label {
+  display: block;
+  text-indent: -9999px;
+  width: 40px;
+  height: 40px;
+
+  background-size: 40px 40px;
+}
+
+#pt-label {
+  background: url("/assets/svgs/br-flag.svg");
+}
+
+#en-label {
+  background: url("/assets/svgs/en-flag.svg");
+}
+
+input[type="radio"] {
+	opacity: 0;
+	width: 0;
+  height: 0;
+}

@@ -3,8 +3,19 @@
   <a class="navbar-brand" href="#coverSection">Felipe Müller</a>
 
   <ul class="navbar-nav" id="language-buttons-collapsed">
-    <li class="nav-item"><button (click)="switchLanguage('en')">en</button></li>
-    <li class="nav-item"><button (click)="switchLanguage('pt')">pt</button></li>
+
+    <li class="nav-item">
+      <label id="pt-label" for="pt">
+        <input id="pt" type="radio" name="lang-radios" (click)="switchLanguage('pt')" checked>
+      </label>
+    </li>
+
+    <li class="nav-item">
+      <label id="en-label" for="en">
+        <input id="en" type="radio" name="lang-radios" (click)="switchLanguage('en')">
+      </label>
+    </li>
+
   </ul>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,9 +30,26 @@
     </ul>
   </div>
 
+
+
+
+
+
+
   <ul class="navbar-nav" id="language-buttons-uncollapsed">
-    <li class="nav-item"><button (click)="switchLanguage('en')">en</button></li>
-    <li class="nav-item"><button (click)="switchLanguage('pt')">pt</button></li>
+
+    <li class="nav-item">
+      <label id="pt-label" for="pt">
+        <input id="pt" type="radio" name="lang-radios" (click)="switchLanguage('pt')" checked>
+      </label>
+    </li>
+
+    <li class="nav-item">
+      <label id="en-label" for="en">
+        <input id="en" type="radio" name="lang-radios" (click)="switchLanguage('en')">
+      </label>
+    </li>
+
   </ul>
 
 
