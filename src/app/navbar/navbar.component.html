@@ -4,16 +4,14 @@
 
   <ul class="navbar-nav" id="language-buttons-collapsed">
 
-    <li class="nav-item">
-      <label id="pt-label" for="pt">
-        <input id="pt" type="radio" name="lang-radios" (click)="switchLanguage('pt')" checked>
-      </label>
+    <li class="nav-item lang-li">
+      <input id="pt-coll" type="radio" name="lang-radios-coll" (click)="switchLanguage($event, 'pt')" checked>
+      <label id="pt-label-coll" for="pt-coll"></label>
     </li>
 
-    <li class="nav-item">
-      <label id="en-label" for="en">
-        <input id="en" type="radio" name="lang-radios" (click)="switchLanguage('en')">
-      </label>
+    <li class="nav-item lang-li">
+      <input id="en-coll" type="radio" name="lang-radios-coll" (click)="switchLanguage($event, 'en')">
+      <label id="en-label-coll" for="en-coll"></label>
     </li>
 
   </ul>
@@ -38,16 +36,14 @@
 
   <ul class="navbar-nav" id="language-buttons-uncollapsed">
 
-    <li class="nav-item">
-      <label id="pt-label" for="pt">
-        <input id="pt" type="radio" name="lang-radios" (click)="switchLanguage('pt')" checked>
-      </label>
+    <li class="nav-item lang-li">
+      <input id="pt-uncoll" type="radio" name="lang-radios-uncoll" (click)="switchLanguage($event, 'pt')" checked>
+      <label id="pt-label-uncoll" for="pt-uncoll"></label>
     </li>
 
-    <li class="nav-item">
-      <label id="en-label" for="en">
-        <input id="en" type="radio" name="lang-radios" (click)="switchLanguage('en')">
-      </label>
+    <li class="nav-item lang-li">
+      <input id="en-uncoll" type="radio" name="lang-radios-uncoll" (click)="switchLanguage($event, 'en')">
+      <label id="en-label-uncoll" for="en-uncoll"></label>
     </li>
 
   </ul>

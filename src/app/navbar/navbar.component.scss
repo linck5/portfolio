@@ -14,22 +14,54 @@
   flex-direction: row;
 }
 
+$svg-label-size: 35px;
 label {
-  display: block;
   text-indent: -9999px;
-  width: 40px;
-  height: 40px;
-
-  background-size: 40px 40px;
+  width: $svg-label-size;
+  height: $svg-label-size;
+  background-size: $svg-label-size $svg-label-size;
+  filter: grayscale(100%);
 }
 
-#pt-label {
+#pt-label-coll, #pt-label-uncoll {
   background: url("/assets/svgs/br-flag.svg");
 }
 
-#en-label {
+#en-label-coll, #en-label-uncoll {
   background: url("/assets/svgs/en-flag.svg");
 }
+
+.lang-li {
+  position: relative;
+  margin-left: 10px;
+}
+
+$arrow-size: 13px;
+
+input[type="radio"]:checked + label::after {
+  content: '';
+  font-size: 1rem;
+  color: white;
+  position: absolute;
+  top: calc(#{$svg-label-size} - 9px);
+  right: calc(#{$svg-label-size}/2 - #{$arrow-size}/2);
+
+  background: url("/assets/svgs/up-arrow.svg");
+  display: block;
+  text-indent: -9999px;
+  width: $arrow-size;
+  height: $arrow-size;
+  background-size: $arrow-size $arrow-size;
+}
+
+input[type="radio"]:checked + label {
+  filter: grayscale(75%);
+}
+
+input[type="radio"] + label:hover {
+  filter: grayscale(1%);
+}
+
 
 input[type="radio"] {
 	opacity: 0;
