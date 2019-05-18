@@ -11,6 +11,12 @@ export class NavbarComponent implements OnInit {
   constructor(private translate: TranslateService) { }
 
   ngOnInit() {
+    if(this.translate.getDefaultLang() != "en"){
+      console.error("unxpected default language, change this code")
+    }
+
+    this.toggleRadioCheckedById("en-coll")
+    this.toggleRadioCheckedById("en-uncoll")
   }
 
   private toggleRadioCheckedById(id:string) {
