@@ -4,15 +4,18 @@ $navbar-height: 51px;
   position: relative;
 }
 
-
+#map-conatiner {
+  height: 375px;
+  overflow-y: hidden;
+}
 
 #map {
   width: 100%;
   height: 400px;
   background-color: #181818;
 
-  -webkit-filter: grayscale(40%); /* Safari */
-  filter: grayscale(40%);
+  -webkit-filter: grayscale(60%); /* Safari */
+  filter: grayscale(60%);
 
   }@include media("<tablet") {#map{
     height: calc(100vh - #{$navbar-height});

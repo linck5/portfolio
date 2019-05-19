@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
+import { mapStyle } from './googleMapsStyle'
 declare var google:any
 
 @Component({
@@ -14,20 +15,23 @@ export class ContactComponent implements OnInit {
         function initMap() {
           var uluru = {lat: -26.2717061, lng: -47.9335963};
           var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 7,
+            zoom: 6,
             center: uluru,
-            scrollwheel: false,
-            zoomControlOptions: {
-                position: google.maps.ControlPosition.LEFT_BOTTOM
-            },
+            scrollwheel: true,
+            zoomControl: false,
+            // zoomControlOptions: {
+            //     position: google.maps.ControlPosition.LEFT_BOTTOM
+            // },
             streetViewControl: false,
-            mapTypeControl: false
+            mapTypeControl: false,
+            fullscreenControl: false,
+            styles: mapStyle
           });
           var marker = new google.maps.Marker({
+            icon: 'assets/svgs/map-marker.svg',
             position: {lat: -26.489922, lng: -49.077456},
             map: map
           });
-
         }
 
         google.maps.event.addDomListener(window, 'load', initMap);
