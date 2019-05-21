@@ -73,7 +73,7 @@ export class MyworkComponent implements OnInit, AfterViewInit {
 
     this.works = []
 
-    const i18nProps = ["title", "imageUrl", "description", "type", "workUrl", "sourceCodeUrl"]
+    const i18nProps = ["title", "imageUrl", "description", "type", "workUrl", "sourceCodeUrl", "videoUrl"]
     const otherProps = ["type", "date", "relevance"]
 
     for (let work of this.worksData) {
