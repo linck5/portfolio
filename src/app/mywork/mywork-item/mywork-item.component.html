@@ -16,9 +16,9 @@
     </div>
 
     <div class="buttons">
-      <a class="work-item-button" *ngIf='work.workUrl != undefined' href={{work.workUrl}} target="_blank" role="button">Visualizar Página</a>
-      <a class="work-item-button" *ngIf='work.videoUrl != undefined' href={{work.videoUrl}} target="_blank" role="button">Ver Vídeo</a>
-      <a class="work-item-button" *ngIf='work.sourceCodeUrl != undefined' href={{work.sourceCodeUrl}} target="_blank" role="button">Código Fonte Online</a>
+      <a class="work-item-button" *ngIf='work.workUrl != undefined' href={{work.workUrl}} target="_blank" role="button">{{'MyWork.ItemButtons.ViewOnline'|translate}}</a>
+      <a class="work-item-button" *ngIf='work.videoUrl != undefined' href={{work.videoUrl}} target="_blank" role="button">{{'MyWork.ItemButtons.DemoVideo'|translate}}</a>
+      <a class="work-item-button" *ngIf='work.sourceCodeUrl != undefined' href={{work.sourceCodeUrl}} target="_blank" role="button">{{'MyWork.ItemButtons.SourceCode'|translate}}</a>
     </div>
 
 
