@@ -20,8 +20,7 @@ export class NavbarComponent implements OnInit {
   }
 
   private toggleRadioCheckedById(id:string) {
-    let radioElement = document.getElementById(id);
-    (radioElement as HTMLInputElement).checked = true;
+    (document.getElementById(id) as HTMLInputElement).checked = true;
   }
 
   switchLanguage(event, language: string) {
