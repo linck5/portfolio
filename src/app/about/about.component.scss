@@ -1,8 +1,52 @@
+section {
+  color: white;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  margin-top: 100px;
+  margin-left: 100px;
+  margin-bottom: 80vh;
+}
+
+#about-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#about-content {
+  flex: 1;
+  padding-right: 3vw;
+}
+
+@media (min-width: 768px) {
+  #about-content {
+    padding-right: 10vw;
+  }
+}
+
+
 #aboutText {
-  font-size: 20px;
-  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 1.3rem;
+  font-family: "Ubuntu Mono", Monaco, monospace;
 
   line-height: 36px;
   word-break: break-word;
   /*text-align: center*/
+}
+
+img {
+  margin-right: 3vw;
+  border: 3px #00FFFF33 solid;
+  border-radius: 3px;
+  width: 38vw;
+  height: 38vw;
+}
+
+@media (min-width: 768px) {
+  img {
+    width: 300px;
+    height: 300px;
+    margin-right: 100px;
+  }
 }
