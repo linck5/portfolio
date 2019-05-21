@@ -5,9 +5,13 @@
   margin-left: 100px;
   margin-right: 10px;
 
-  background-color: #00000055;
+  //background-color: #00000055;
 
   padding-bottom: 500px;
+}
+
+h2 {
+  color: white;
 }
 
 @media (min-width: 768px) {
@@ -45,24 +49,55 @@
 }
 
 #workType-radios > li > input[type=radio] ~ label {
-  padding: 20px;
-  margin: 8px 0 8px 0;
+  padding: 15px 20px 15px 20px;
+  margin: 0;
+  //margin: 8px 0 8px 0;
   color: #EEE;
-  background-color: #333;
+  background-color: #00222288;
 }
 
 #workType-radios > li > input[type=radio]:checked ~ label {
-  margin: 0;
-  height: 100%;
-  color: #333;
-  background-color: #EEE;
+  position: relative;
+}
+
+#workType-radios > li > input[type=radio]:checked ~ label::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border: 1px cyan solid;
 }
 
 
+#list-settings-separator {
+  width: 30px;
+  background-color: #00222244;
+}
+
+
+#workType-select-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
 #workType-select {
-  background: url(http://www.stackoverflow.com/favicon.ico) 96% / 15% no-repeat #eee;
+  width: 130px;
+  padding: 10px;
+  color: #EEE;
+  background: url("/assets/svgs/workType-select-icon.svg") 96% / 15% no-repeat #00222288;;
   appearance: none;
   border: none;
+}
+
+#workType-select-wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border: 1px cyan solid;
 }
 
 #worksUL {

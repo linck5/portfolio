@@ -22,9 +22,16 @@
       </li>
     </ul>
 
-    <select id="workType-select" [(ngModel)]="selectedOrderBy" (change)="orderbyHandler()">
-        <option *ngFor="let option of orderbyOptions" [ngValue]="option">{{option.label}}</option>
-    </select>
+    <div id="list-settings-separator">
+      <!-- <div>●</div> -->
+    </div>
+
+    <div id="workType-select-wrapper">
+      <select id="workType-select" [(ngModel)]="selectedOrderBy" (change)="orderbyHandler()">
+          <option *ngFor="let option of orderbyOptions" [ngValue]="option">{{option.label}}</option>
+      </select>
+    </div>
+
   </div>
 
   <p>{{workType}}</p>
