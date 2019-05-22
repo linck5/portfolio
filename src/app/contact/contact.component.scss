@@ -23,13 +23,14 @@ $navbar-height: 51px;
 }
 
 #contactBox{
-  background-color: #181818;
-  opacity: 0.95;
+  background-color: #111111;
+  opacity: 0.88;
+  border: 2px solid #00FFFF44;
   position: absolute;
   top: 50px;
   right: 50px;
   width: 50%;
-  height: 300px;
+  height: 200px;
   }@include media("<tablet") {#contactBox{
     top: 50px;
     left: 2%;
@@ -39,17 +40,18 @@ $navbar-height: 51px;
     width: auto;
     left: 50px;
   }}@include media(">=desktop") {#contactBox{
-    width: 700px;
+    width: 600px;
   }
 }
 
 
 
 #contactBoxContent{
-  padding: 50px;
+  padding: 1.6rem 2.3rem 1.6rem 2.3rem;
   color: #EEE;
-  text-align: center;
-  font-size: 2.5rem;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
 
   }@include media("<tablet") {#contactBoxContent{
     padding-left: 2%;
@@ -60,15 +62,16 @@ $navbar-height: 51px;
   }
 }
 
-#phoneText,
-#emailText{
-  padding-left: 20px;
+#emailText {
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 0;
+}
 
-  font-family: 'PT Sans', sans-serif;
-
-  }@include media("<tablet") {#phoneText,#emailText{
-    padding-left: 2%;
-  }
+#emailAddress{
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 1rem;
 }
 
 .contact-link-icon {
@@ -78,5 +81,7 @@ $navbar-height: 51px;
   padding-right: 3%;
 }
 #contactLinkIcons {
-  padding-top: 20px;
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.3rem;
 }
