@@ -27,7 +27,7 @@
     </div>
 
     <div id="workType-select-wrapper">
-      <select id="workType-select" [(ngModel)]="selectedOrderBy" (change)="orderbyHandler()">
+      <select id="workType-select" [(ngModel)]="selectedOrderBy">
           <option *ngFor="let option of orderbyOptions" [ngValue]="option">{{option.label}}</option>
       </select>
     </div>
@@ -37,6 +37,8 @@
   <p>{{workType}}</p>
 
   <ul id="worksUL">
-    <li *ngFor="let work of works | mywork:workType"><app-mywork-item [work]="work"></app-mywork-item></li>
+    <li *ngFor="let work of works | mywork: workType : selectedOrderBy">
+      <app-mywork-item [work]="work"></app-mywork-item>
+    </li>
   </ul>
 </section>

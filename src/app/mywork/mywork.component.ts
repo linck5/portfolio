@@ -38,32 +38,16 @@ export class MyworkComponent implements OnInit, AfterViewInit {
   isFirstOnLangChangeEvent = true;
   workType:string = "all";
 
-  private sortWorks(opt:OrderByOption){
-    switch(opt.id){
-      case 0:
-        this.works.sort((a,b) => b.relevance - a.relevance)
-        break
-      case 1:
-        this.works.sort((a,b) => new Date(a.date).getTime() - new Date(b.date).getTime())
-        break
-      case 2:
-        this.works.sort((a,b) => a.title.localeCompare(b.title))
-    }
-  }
 
-  public orderbyHandler(){
-    this.sortWorks(this.selectedOrderBy)
-  }
 
   private onLangChange(event: LangChangeEvent) {
 
     if(!this.isFirstOnLangChangeEvent){
       this.updateWorks(event.lang)
-      this.sortWorks(this.selectedOrderBy)
     }
 
     for (let opt of this.orderbyOptions) {
-        opt.label = event.translations[opt.path[0]][opt.path[1]][opt.path[2]]
+      opt.label = event.translations[opt.path[0]][opt.path[1]][opt.path[2]]
     }
 
     this.isFirstOnLangChangeEvent = false;
@@ -156,7 +140,6 @@ export class MyworkComponent implements OnInit, AfterViewInit {
     this.worksData = await this.httpService.get("/projects").toPromise()
 
     this.updateWorks("en")
-    this.sortWorks(this.selectedOrderBy)
   }
 
 }
