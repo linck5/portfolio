@@ -1,8 +1,10 @@
+@import "~src/variables.scss";
+
 #myWorkSection {
   display: flex;
   flex-flow: column nowrap;
 
-  margin-left: 100px;
+  margin-left: calc(#{$wires-margin} + 10px);
   margin-right: 10px;
 
   //background-color: #00000055;
@@ -16,7 +18,7 @@ h2 {
 
 @media (min-width: 768px) {
   #myWorkSection {
-    margin-left: calc(75px + 4vw);
+    margin-left: calc(#{$wires-margin} + 4vw);
     margin-right: 8vw;
   }
 }
