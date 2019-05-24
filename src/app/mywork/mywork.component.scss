@@ -108,8 +108,10 @@ h2 {
 
   display: flex;
   flex-flow: row wrap;
+  justify-content: center;
 }
 
 #worksUL > li {
   flex: 0/*controlled by js*/;
+  max-width: 525px;
 }

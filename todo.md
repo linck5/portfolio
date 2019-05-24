@@ -1,12 +1,15 @@
 For mvp
-- responsivity
-- improve projects content
+
+lvl1
 - gmaps starting view
-- mywork item thresholds
 - navbar page links
 - improve fonts
 - finish layout spacing
+
+lvl3
 - browser compatibility
+- responsivity
+- improve projects content
 - see about setting up a domain
 
 

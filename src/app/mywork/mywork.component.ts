@@ -108,7 +108,7 @@ export class MyworkComponent implements OnInit, AfterViewInit {
     let desiredNOfColumns: number;
     let w = document.documentElement.clientWidth
 
-    let breakpoints = [768, 992, 1200, 1920]
+    let breakpoints = [992, 1200, 1500]
 
     desiredNOfColumns = 1;
     for (let breakpoint of breakpoints) {
