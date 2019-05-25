@@ -1,5 +1,7 @@
 @import "~include-media/dist/_include-media.scss";
-$navbar-height: 51px;
+@import "~src/variables.scss";
+
+
 #contactSection{
   position: relative;
 }
@@ -7,6 +9,9 @@ $navbar-height: 51px;
 #map-conatiner {
   height: 375px;
   overflow-y: hidden;
+  }@include media("<tablet") {#map-conatiner{
+    height: calc(100vh - #{$navbar-height});
+  }
 }
 
 #map {
