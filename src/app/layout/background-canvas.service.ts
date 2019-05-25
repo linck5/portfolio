@@ -144,7 +144,11 @@ s3p3 = Math.sqrt(3);
 
     for(var i=0;i<this.hexagons.length;i++){
       let hex_y = this.hexagons[i].y;
-      if(hex_y < viewport_bot && hex_y > viewport_top){
+      if(
+        hex_y < viewport_bot + this.hexagon_radius &&
+        hex_y > viewport_top - this.hexagon_radius
+      ) {
+
         this.drawHexagonPath(i);
       }
 
