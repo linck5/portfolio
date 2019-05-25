@@ -3,6 +3,9 @@ For mvp
 lvl1
 - improve fonts
 - finish layout spacing
+- test about with other images
+- apply techy filter to about image
+- tidy up the "this portfolio" mywork item
 
 lvl2
 - pick starting language from browser language info
