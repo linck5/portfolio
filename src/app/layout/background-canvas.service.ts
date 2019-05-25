@@ -85,7 +85,6 @@ s3p3 = Math.sqrt(3);
   start() {
 
 
-
     this.canvas = document.getElementById(this.canvasId);
     this.canvas.width = window.innerWidth;
 
@@ -96,7 +95,7 @@ s3p3 = Math.sqrt(3);
     this.canvas.style.height = this.currHeight + 'px'
 
 
-    this.ctx = this.canvas.getContext('2d');
+    this.ctx = this.canvas.getContext('2d', { alpha: false });
 
     this.ctx.globalCompositeOperation = "source-over";
 
@@ -140,8 +139,17 @@ s3p3 = Math.sqrt(3);
 
     this.ctx.beginPath();
 
-    for(var i=0;i<this.hexagons.length;i++)
-      this.drawHexagonPath(i);
+    let viewport_top = window.pageYOffset;
+    let viewport_bot = window.pageYOffset + window.innerHeight;
+
+    for(var i=0;i<this.hexagons.length;i++){
+      let hex_y = this.hexagons[i].y;
+      if(hex_y < viewport_bot && hex_y > viewport_top){
+        this.drawHexagonPath(i);
+      }
+
+    }
+
 
     this.ctx.shadowColor = this.hexagon_color;
     this.ctx.shadowBlur = 20;
