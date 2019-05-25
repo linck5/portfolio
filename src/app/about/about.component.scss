@@ -5,7 +5,7 @@ section {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
-  margin-top: 100px;
+  padding-top: $navbar-height + 100px; //this is for the navbar link anchor
   margin-left: calc(#{$wires-margin} + 10px);
   margin-bottom: 80vh;
 }
