@@ -1,7 +1,7 @@
 @import "~src/variables.scss";
 
 section {
-  color: white;
+  color: $std-white;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
@@ -27,14 +27,18 @@ section {
   }
 }
 
+#about-title {
+  font-family: 'Play', sans-serif;
+  font-size: 2.1rem;
+  margin-bottom: 1.5rem;
+}
 
-#aboutText {
-  font-size: 1.3rem;
-  font-family: "Ubuntu Mono", Monaco, monospace;
+#about-text {
+  font-size: 1.4rem;
+  font-family: "Ubuntu Mono", monospace;
 
   line-height: 36px;
   word-break: break-word;
-  /*text-align: center*/
 }
 
 img {

@@ -18,7 +18,7 @@ export class AboutComponent implements OnInit {
   ngOnInit() {
 
 
-    let aboutTextElement = document.getElementById('aboutText')
+    let aboutTextElement = document.getElementById('about-text')
 
     this.translate.onLangChange.subscribe((lang: LangChangeEvent) => {
       this.textAnimator.animateText(lang.translations['About']['MainParagraph'], aboutTextElement)

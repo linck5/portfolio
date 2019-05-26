@@ -1,8 +1,7 @@
 @import "~include-media/dist/_include-media.scss";
 @import "~src/variables.scss";
 
-$textColor: #edeff9;
-$shadowColor: #393136;
+$shadowColor: #003333FF;
 
 #cover-section-wrapper{
   animation: cover_appearing 1.0s;
@@ -31,23 +30,19 @@ $shadowColor: #393136;
   padding-left: 10vw;
   padding-right: 10vw;
   text-align: center;
-  text-shadow: 0.03em 0.03em $shadowColor;
-  color: $textColor;
 
-  font-family: 'Baloo', cursive;
-
-  }@include media("<desktop") {#coverText{
-
-  }
+  color: $std-white;
 }
 
 
 #cover-text h1{
-  font-family: 'Righteous', cursive;
-  font-size: 18vmin;
-
+  font-family: 'Orbitron', sans-serif;
+  font-size: 14vmin;
+  padding-bottom: 3vh;
+  text-shadow: 0.2rem 0.2rem $shadowColor;
 }
 #cover-text h2{
-  font-family: 'Oswald', sans-serif;
-  font-size: 10vmin;
+  font-family: 'Play', sans-serif;
+  font-size: 6vmin;
+  text-shadow: 0.1rem 0.1rem $shadowColor;
 }

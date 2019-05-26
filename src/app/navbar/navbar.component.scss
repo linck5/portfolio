@@ -1,3 +1,10 @@
+@import "~src/variables.scss";
+
+nav {
+  font-family: 'Play', sans-serif;
+}
+
+
 
 #language-buttons-collapsed > li { display: initial; }
 #language-buttons-uncollapsed > li { display: none; }
@@ -42,7 +49,7 @@ $arrow-size: 13px;
 input[type="radio"]:checked + label::after {
   content: '';
   font-size: 1rem;
-  color: white;
+  color: $std-white;
   position: absolute;
   top: calc(#{$svg-label-size} - 9px);
   right: calc(#{$svg-label-size}/2 - #{$arrow-size}/2);

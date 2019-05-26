@@ -1,3 +1,4 @@
+@import "~include-media/dist/_include-media.scss";
 @import "~src/variables.scss";
 
 #myWorkSection {
@@ -6,15 +7,20 @@
 
   margin-left: calc(#{$wires-margin} + 10px);
   margin-right: 10px;
-
-  //background-color: #00000055;
   padding-top: $navbar-height + 20px; //this is for the navbar link anchor
-
   padding-bottom: 500px;
+
+  font-family: 'Play', sans-serif;
 }
 
 h2 {
-  color: white;
+  color: $std-white;
+  margin-left: 100px;
+  margin-bottom: 4rem;
+  }@include media("<tablet") {h2{
+    margin-left: 0;
+    text-align: center;
+  }
 }
 
 @media (min-width: 768px) {
@@ -55,7 +61,7 @@ h2 {
   padding: 15px 20px 15px 20px;
   margin: 0;
   //margin: 8px 0 8px 0;
-  color: #EEE;
+  color: $std-white;
   background-color: #00222288;
 }
 
@@ -88,7 +94,7 @@ h2 {
 #workType-select {
   width: 130px;
   padding: 10px;
-  color: #EEE;
+  color: $std-white;
   background: url("/assets/svgs/workType-select-icon.svg") 96% / 15% no-repeat #00222288;;
   appearance: none;
   border: none;
