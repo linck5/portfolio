@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { FpsCtrl } from './fps-control'
 import  $ from 'jquery';
 
 @Injectable({
@@ -25,16 +26,21 @@ canvasId;
 canvasContainerId;
 getPageHeight;
 requestAnimFrame;
+fc;
 hexagons = [];
 refreshing = false;
 currHeight = null;
 resizeRefreshScheduled = false;
+fps = 24;
+
 
 
 s3p3 = Math.sqrt(3);
 
 
-  constructor() { }
+  constructor() {
+    this.fc = new FpsCtrl(this.fps, this.loop.bind(this))
+  }
 
   refresh() {
     this.refreshing = true;
@@ -45,13 +51,6 @@ s3p3 = Math.sqrt(3);
     this.canvasId = canvasId;
     this.canvasContainerId = canvasContainerId;
     this.getPageHeight = getPageHeight;
-
-    this.requestAnimFrame =
-      window.requestAnimationFrame       ||
-      window.webkitRequestAnimationFrame ||
-      function( callback ){
-        window.setTimeout(callback, 1000 / 60);
-      };
 
     window.addEventListener('resize', ()=>{
       if(!this.resizeRefreshScheduled){
@@ -102,8 +101,9 @@ s3p3 = Math.sqrt(3);
     var hw = Math.ceil( this.canvas.width / ( 1.5 * this.hexagon_radius + this.hexagon_space_between * 2 ) ) + 1;
     var hh = Math.ceil( this.canvas.height / ( this.s3p3 * this.hexagon_radius + this.hexagon_space_between * 2 ) ) + 1;
 
-    for(var x = 0;x<hw;x++)
-      for(var y=0;y<hh;y++)
+    for(var x = 0;x<hw;x++) {
+      for(var y=0;y<hh;y++) {
+        if(Math.random() > 0.8) continue;
         this.addHexagon(
           this.hexagon_radius + this.hexagon_space_between + ( 1.5 * this.hexagon_radius + this.hexagon_space_between * 2 ) * x,
           this.s3p3 * this.hexagon_radius / 2 + this.hexagon_space_between + ( this.s3p3 * this.hexagon_radius + this.hexagon_space_between * 2 ) * y - ( x%2 ? this.s3p3 * this.hexagon_radius / 2 : 0 ),
@@ -111,10 +111,14 @@ s3p3 = Math.sqrt(3);
             l: 0
           }
         );
+      }
+    }
+
+
 
     this.ctx.lineWidth = this.hexagon_line_width;
 
-    this.loop();
+    this.fc.start();
 
 
   }
@@ -130,8 +134,6 @@ s3p3 = Math.sqrt(3);
       this.start();
       return;
     }
-
-    this.requestAnimFrame(this.loop.bind(this));
 
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.ctx.fillStyle = '#000808';
