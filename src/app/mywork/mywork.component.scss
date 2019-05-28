@@ -42,7 +42,12 @@ h2 {
 #list-settings {
   width: 100%;
   display: flex;
+  flex-flow: row nowrap;
   justify-content: center;
+  }@include media("<tablet") {#list-settings{
+    flex-flow: column nowrap;
+    align-items: center;
+  }
 }
 
 #workType-radios {
@@ -82,6 +87,9 @@ h2 {
 #list-settings-separator {
   width: 30px;
   background-color: #00222244;
+  }@include media("<tablet") {#list-settings-separator{
+    display: none;
+  }
 }
 
 
@@ -89,6 +97,9 @@ h2 {
   position: relative;
   display: flex;
   justify-content: center;
+  }@include media("<tablet") {#workType-select-wrapper{
+    margin-top: 2.5rem;
+  }
 }
 
 #workType-select {
