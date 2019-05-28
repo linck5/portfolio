@@ -34,8 +34,6 @@
 
   </div>
 
-  <p>{{workType}}</p>
-
   <ul id="worksUL">
     <li *ngFor="let work of works | mywork: workType : selectedOrderBy">
       <app-mywork-item [work]="work"></app-mywork-item>
