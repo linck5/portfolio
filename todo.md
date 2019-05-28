@@ -7,10 +7,10 @@ lvl1
 
 lvl2
 - pick starting language from browser language info
+- run text animation only when about section is on screen
 
 lvl3
 - browser compatibility
-- responsivity
 - improve projects content
 - see about setting up a domain
 

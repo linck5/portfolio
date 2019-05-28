@@ -35,7 +35,9 @@ section {
 #about-content {
   padding-right: 3vw;
   width: 520px;
-
+  }@include media(">desktop") { #about-content {
+    width: 620px;
+  }
   }@include media("<tablet") { #about-content {
     width: auto;
     text-align: center;

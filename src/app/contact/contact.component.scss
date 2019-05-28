@@ -11,7 +11,7 @@
 #map-conatiner {
   height: 375px;
   overflow-y: hidden;
-  }@include media("<tablet") {#map-conatiner{
+  }@include media("<desktop") {#map-conatiner{
     height: calc(100vh - #{$navbar-height});
   }
 }
@@ -24,7 +24,7 @@
   -webkit-filter: grayscale(60%); /* Safari */
   filter: grayscale(60%);
 
-  }@include media("<tablet") {#map{
+}@include media("<desktop") {#map{
     height: calc(100vh - #{$navbar-height});
   }
 }
