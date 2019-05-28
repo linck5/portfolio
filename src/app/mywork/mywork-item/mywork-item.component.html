@@ -8,7 +8,7 @@
 
     <p class="date">{{work.formattedDate}}</p>
 
-    <div class="content">
+    <div [ngClass]="{'content': true, 'no-image-content': work.imageUrl == undefined}">
       <h3>{{work.title}}</h3>
       <p [innerHTML]="work.description"></p>
 
