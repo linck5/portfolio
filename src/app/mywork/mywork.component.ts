@@ -53,8 +53,6 @@ export class MyworkComponent implements OnInit, AfterViewInit {
     this.isFirstOnLangChangeEvent = false;
   }
   private updateWorks(lang){
-    console.log(lang)
-
     this.works = []
 
     const i18nProps = ["title", "imageUrl", "description", "type", "workUrl", "sourceCodeUrl", "videoUrl"]
