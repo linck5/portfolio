@@ -5,7 +5,6 @@ lvl1
 - apply techy filter to about image
 
 lvl2
-- pick starting language from browser language info
 - run text animation only when about section is on screen
 
 lvl3

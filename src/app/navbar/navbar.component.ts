@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core'
+import { Language } from 'src/app/language-support'
 
 @Component({
   selector: 'app-navbar',
@@ -15,8 +16,18 @@ export class NavbarComponent implements OnInit {
       console.error("unxpected default language, change this code")
     }
 
-    this.toggleRadioCheckedById("en-coll")
-    this.toggleRadioCheckedById("en-uncoll")
+    switch(this.translate.currentLang) {
+      case Language.PORTUGUESE:
+        this.toggleRadioCheckedById("pt-coll")
+        this.toggleRadioCheckedById("pt-uncoll")
+        break;
+      case Language.ENGLISH:
+      default:
+        this.toggleRadioCheckedById("en-coll")
+        this.toggleRadioCheckedById("en-uncoll")
+        break;
+    }
+
   }
 
   private toggleRadioCheckedById(id:string) {
