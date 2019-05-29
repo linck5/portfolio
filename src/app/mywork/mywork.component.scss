@@ -67,7 +67,7 @@ h2 {
   margin: 0;
   //margin: 8px 0 8px 0;
   color: $std-white;
-  background-color: #00222288;
+  background-color: rgba(0, 34, 34, 0.53);
 }
 
 #workType-radios > li > input[type=radio]:checked ~ label {
@@ -86,7 +86,7 @@ h2 {
 
 #list-settings-separator {
   width: 30px;
-  background-color: #00222244;
+  background-color: rgba(0, 34, 34, 0.53);
   }@include media("<tablet") {#list-settings-separator{
     display: none;
   }
@@ -106,7 +106,7 @@ h2 {
   width: 130px;
   padding: 10px;
   color: $std-white;
-  background: url("/assets/svgs/workType-select-icon.svg") 96% / 15% no-repeat #00222288;;
+  background: url("/assets/svgs/workType-select-icon.svg") 96% / 15% no-repeat rgba(0, 34, 34, 0.53);
   appearance: none;
   border: none;
 }

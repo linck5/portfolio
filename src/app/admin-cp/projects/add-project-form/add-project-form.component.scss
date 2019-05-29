@@ -26,14 +26,14 @@ form {
   padding: 14px;
   padding-left: 24px;
   font-size: 1.3rem;
-  background-color: #ADD8E633;
-  border-bottom: 2px solid #CCCCCC66;
+  background-color: rgba(173, 216, 230, 0.2);
+  border-bottom: 2px solid rgba(204, 204, 204, 0.4);
 }
 
 .lang-section-title {
   padding: 10px;
   padding-left: 34px;
-  background-color: #CCCCCC3B;
+  background-color: rgba(204, 204, 204, 0.23);
   margin-top: 20px;
 }
 
@@ -43,11 +43,12 @@ form > div > label {
 
 
 form > .form-line:nth-child(even) {
-  background-color: #7f9ea818;
+  background-color: rgba(127, 158, 168, 0.09);
+
 }
 
 .i18n-lang-section-line:nth-child(odd) {
-  background-color: #FFFFFF88;
+  background-color: rgba(255, 255, 255, 0.53);
 }
 
 form > div > label, .i18n-lang-section-line > label {
