@@ -63,7 +63,6 @@ export class MyworkComponent implements OnInit, AfterViewInit {
         for (let prop of i18nProps) {
           if(lang == "en"){
             if(work[prop]){
-              console.log("here")
               newWork[prop] = work[prop]
             }
           }
@@ -137,7 +136,7 @@ export class MyworkComponent implements OnInit, AfterViewInit {
 
     this.worksData = await this.httpService.get("/projects").toPromise()
 
-    this.updateWorks("en")
+    this.updateWorks(this.translate.currentLang)
   }
 
 }
