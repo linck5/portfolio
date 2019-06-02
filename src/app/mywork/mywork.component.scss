@@ -44,6 +44,7 @@ h2 {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
+  margin-bottom: 50px;
   }@include media("<tablet") {#list-settings{
     flex-flow: column nowrap;
     align-items: center;
