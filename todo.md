@@ -1,9 +1,5 @@
 For mvp
 
-lvl1
-- test about with other images
-- apply techy filter to about image
-
 lvl2
 - run text animation only when about section is on screen
 
