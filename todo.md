@@ -1,8 +1,5 @@
 For mvp
 
-lvl2
-- run text animation only when about section is on screen
-
 lvl3
 - improve projects content
 - see about setting up a domain
