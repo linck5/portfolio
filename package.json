@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node server/server.js",
+    "start": "node server/init.js",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
@@ -33,6 +33,7 @@
     "express": "^4.16.4",
     "font-awesome": "^4.7.0",
     "include-media": "^1.4.9",
+    "isomorphic-fetch": "^2.2.1",
     "jquery": "^3.4.0",
     "jsoneditor": "^5.32.4",
     "mongoose": "^5.4.15",

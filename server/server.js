@@ -1,41 +1,46 @@
-const express = require('express')
-const path = require ('path')
-const bodyParser = require('body-parser')
-const router = express.Router();
-const auth = require('./auth.middleware')
+module.exports = function() {
+  const express = require('express')
+  const path = require ('path')
+  const bodyParser = require('body-parser')
+  const router = express.Router();
+  const auth = require('./auth.middleware')
 
-require('dotenv').config();
+  require('dotenv').config();
 
-const mongoose = require('mongoose');
-mongoose.connect(process.env.DB_STRING, {
-  useNewUrlParser: true,
-  useCreateIndex: true
-});
+  const mongoose = require('mongoose');
+  mongoose.connect(process.env.DB_STRING, {
+    useNewUrlParser: true,
+    useCreateIndex: true
+  });
 
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  console.log("connected to db")
-});
+  var db = mongoose.connection;
+  db.on('error', console.error.bind(console, 'connection error:'));
+  db.once('open', function() {
+    console.log("connected to db")
+  });
 
-const app = express()
+  const app = express()
 
-app.use(express.static(path.join(__dirname, '..', '/dist/portfolio')))
+  app.use(express.static(path.join(__dirname, '..', '/dist/portfolio')))
 
-app.use(auth)
+  app.use(auth)
 
-app.use('/', router);
+  app.use('/', router);
 
-router.use(bodyParser.urlencoded({ extended: true }))
-router.use(bodyParser.json())
+  router.use(bodyParser.urlencoded({ extended: true }))
+  router.use(bodyParser.json())
 
-require('./i18n/i18n.controller')(router)
-require('./projects/project.controller')(router)
+  require('./i18n/i18n.controller')(router)
+  require('./projects/project.controller')(router)
 
-router.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', '/dist/portfolio/index.html'))
-});
+  router.get('*', (req, res) => {
+      res.sendFile(path.join(__dirname, '..', '/dist/portfolio/index.html'))
+  });
 
 
+  let port = process.env.PORT || 8080
+  app.listen(port, function () {
+      console.log("main server listening on port " + port);
+  })
 
-app.listen(process.env.PORT || 8080)
+}
