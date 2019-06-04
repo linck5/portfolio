@@ -1,0 +1,66 @@
+body {
+  margin: 0;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-line {
+  height: 50vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#location {
+  margin: auto;
+  text-align: center;
+  font-size: 40px;
+}
+
+#weatherIcon {
+  font-size: 80px;
+}
+
+#description {
+  font-size: 30px;
+}
+
+#temperature-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+}
+
+#weather {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  border: none;
+  font-size: 52px;
+  padding: 10px;
+  background-color: #222;
+  color: #798;
+  outline: none;
+}
+
+button:hover {
+  background-color: #666;
+}
+
+#firstLine {
+  background-color: #222;
+  color: #798;
+}
+
+#secondLine {
+  background-color: #798;
+  color: #222;
+}
