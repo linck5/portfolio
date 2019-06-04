@@ -1,9 +1,6 @@
-var freeGeoIpUrl = "http://freegeoip.net/json/";
-var openWeatherMapUrl = "http://api.openweathermap.org/data/2.5/weather";
-var openWeatherMapKey = "763544ee24f5e47f78e81c6a5b04f9dc";
-
-
-var environment = require('src/environments/environment')
+var api_url = 'https://felipe-muller-portfolio.herokuapp.com/api';
+var freeGeoIpUrl = api_url + "/external/geocheck";
+var openWeatherMapUrl = api_url + "/external/weather";
 
 var decimalPlaces = 3;
 
@@ -20,10 +17,9 @@ $.getJSON(freeGeoIpUrl, function(data, status){
   cityName = data.city;
 
   var openWeatherMapCall =
-      openWeatherMapUrl +
-      "?lat=" + data.latitude +
-      "&lon=" + data.longitude +
-      "&appid=" + openWeatherMapKey;
+      openWeatherMapUrl + '/' +
+      data.latitude + '/' +
+      data.longitude;
 
 
   $.getJSON(openWeatherMapCall, function(data){
