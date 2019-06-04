@@ -41,8 +41,8 @@ module.exports = function() {
   });
 
   // verify server is running
-  let port = 3087;
+  let port = process.env.PORT || 3087
   app.listen(port, function () {
       console.log("api keys server listening on port " + port);
-  });
+  })
 }
