@@ -20,6 +20,7 @@ module.exports = function() {
 
   // populate express get methods for JSON fetch
   app.get('/keys/weather/:lat/:lon', function (req, res) {
+    console.log("fetching weather")
       fetch(`${weatherURL}&lat=${req.params.lat}&lon=${req.params.lon}`)
           .then(response => response.json())
           .then(weather => res.send(weather))
@@ -32,6 +33,7 @@ module.exports = function() {
           .catch(error => res.send(error))
   });
   app.get('/keys/geocheck', function (req, res) {
+      console.log("fetching geocheck")
       fetch(ipstackURL)
           .then(response => response.json())
           .then(geo => res.send(geo))
