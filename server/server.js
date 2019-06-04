@@ -32,6 +32,7 @@ module.exports = function() {
 
   require('./i18n/i18n.controller')(router)
   require('./projects/project.controller')(router)
+  require('./external-apis/external-apis.controller')(router)
 
   router.get('*', (req, res) => {
       res.sendFile(path.join(__dirname, '..', '/dist/portfolio/index.html'))
@@ -40,7 +41,7 @@ module.exports = function() {
 
   let port = process.env.PORT || 8080
   app.listen(port, function () {
-      console.log("main server listening on port " + port);
+      console.log("server listening on port " + port);
   })
 
 }
