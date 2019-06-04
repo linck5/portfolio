@@ -11,14 +11,20 @@ const ipstackURL = `http://api.ipstack.com/check?access_key=${process.env.GEO_KE
 module.exports = function (router) {
 
 
+  function applyHeaders(res) {
+    //res.header('Access-Control-Allow-Origin', '*');
+    //res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    res.header('Access-Control-Allow-Methods', 'GET');
+    return res;
+  }
+
   router.route('/api/external/weather/:lat/:lon')
 
   .get(function(req, res) {
-    console.log("fetching weather")
     fetch(`${weatherURL}&lat=${req.params.lat}&lon=${req.params.lon}`)
         .then(response => response.json())
-        .then(weather => res.send(weather))
-        .catch(error => res.send(error))
+        .then(weather => applyHeaders(res).send(weather))
+        .catch(error => applyHeaders(res).send(error))
   })
 
 
@@ -27,17 +33,16 @@ module.exports = function (router) {
   .get(function(req, res) {
     fetch(`${forecastURL}&lat=${req.params.lat}&lon=${req.params.lon}`)
         .then(response => response.json())
-        .then(forecast => res.send(forecast))
-        .catch(error => res.send(error))
+        .then(forecast => applyHeaders(res).send(forecast))
+        .catch(error => applyHeaders(res).send(error))
   })
 
   router.route('/api/external/geocheck')
 
   .get(function(req, res) {
-    console.log("fetching geocheck")
     fetch(ipstackURL)
         .then(response => response.json())
-        .then(geo => res.send(geo))
-        .catch(error => res.send(error))
+        .then(geo => applyHeaders(res).send(geo))
+        .catch(error => applyHeaders(res).send(error))
   })
 }
