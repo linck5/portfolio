@@ -3,7 +3,7 @@ const fetch = require('isomorphic-fetch');
 // set variables with API call URL
 const weatherURL = `http://api.openweathermap.org/data/2.5/weather?units=imperial&APPID=${process.env.WEATHER_KEY}`;
 const forecastURL = `http://api.openweathermap.org/data/2.5/forecast?units=imperial&APPID=${process.env.WEATHER_KEY}`;
-const ipstackURL = `http://api.ipstack.com/check?access_key=${process.env.GEO_KEY}`
+const ipstackURL = 'http://api.ipstack.com/'
 
 
 
@@ -40,7 +40,14 @@ module.exports = function (router) {
   router.route('/api/external/geocheck')
 
   .get(function(req, res) {
-    fetch(ipstackURL)
+
+    let ip = req.headers['x-forwarded-for'] ||
+     req.connection.remoteAddress ||
+     req.socket.remoteAddress ||
+     (req.connection.socket ? req.connection.socket.remoteAddress : 'noIPInfo');
+
+    console.log(ip)
+    fetch(`${ipstackURL}/${ip}?access_key=${process.env.GEO_KEY}`)
         .then(response => response.json())
         .then(geo => applyHeaders(res).send(geo))
         .catch(error => applyHeaders(res).send(error))
