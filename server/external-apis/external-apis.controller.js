@@ -1,8 +1,8 @@
 const fetch = require('isomorphic-fetch');
 
 // set variables with API call URL
-const weatherURL = `http://api.openweathermap.org/data/2.5/weather?units=imperial&APPID=${process.env.WEATHER_KEY}`;
-const forecastURL = `http://api.openweathermap.org/data/2.5/forecast?units=imperial&APPID=${process.env.WEATHER_KEY}`;
+const weatherURL = `http://api.openweathermap.org/data/2.5/weather?APPID=${process.env.WEATHER_KEY}`;
+const forecastURL = `http://api.openweathermap.org/data/2.5/forecast?APPID=${process.env.WEATHER_KEY}`;
 const ipstackURL = 'http://api.ipstack.com/'
 
 
