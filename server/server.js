@@ -4,6 +4,7 @@ module.exports = function() {
   const bodyParser = require('body-parser')
   const router = express.Router();
   const auth = require('./auth.middleware')
+  const cors = require('./cors.middleware')
 
   require('dotenv').config();
 
@@ -24,6 +25,7 @@ module.exports = function() {
   app.use(express.static(path.join(__dirname, '..', '/dist/portfolio')))
 
   app.use(auth)
+  app.use(cors)
 
   app.use('/', router);
 
