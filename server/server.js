@@ -24,8 +24,8 @@ module.exports = function() {
 
   app.use(express.static(path.join(__dirname, '..', '/dist/portfolio')))
 
-  app.use(auth)
   app.use(cors)
+  app.use(auth)
 
   app.use('/', router);
 
