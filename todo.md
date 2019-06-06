@@ -1,8 +1,3 @@
-For mvp
-
-lvl2
-- fix a bug where the only AI project element gets super thin
-
 
 Maybe for mvp
 - cache the chosen language

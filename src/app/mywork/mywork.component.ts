@@ -113,7 +113,9 @@ export class MyworkComponent implements OnInit, AfterViewInit {
         else desiredNOfColumns++
     }
 
-    while(nOfItems < desiredNOfColumns * 2) desiredNOfColumns--
+    while(nOfItems < desiredNOfColumns * 2 && desiredNOfColumns > 1){
+      desiredNOfColumns--
+    }
 
     let rowsLackingOne = desiredNOfColumns - nOfItems % desiredNOfColumns
     if(desiredNOfColumns == rowsLackingOne) rowsLackingOne = 0
