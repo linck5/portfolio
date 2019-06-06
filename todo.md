@@ -1,8 +1,7 @@
 For mvp
 
-lvl3
-- improve projects content
-- see about setting up a domain
+lvl2
+- fix a bug where the only AI project element gets super thin
 
 
 Maybe for mvp
