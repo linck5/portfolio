@@ -81,6 +81,21 @@ export class MyworkComponent implements OnInit, AfterViewInit {
         this.works.push(newWork)
     }
 
+    // make anchor tags in the description open in a new tab
+    for(let work of this.works) {
+      if(work.description){
+        work.description = this.addAttributeToStringsAnchorTags(
+          work.description, 'target="_blank"')
+      }
+    }
+
+  }
+
+  private addAttributeToStringsAnchorTags(string, attString) {
+    //this regex wont match anchor tags with other tags inside
+    let re = /((?:(?:<a\s+(?:(?:[^">]*"[^"]*")|(?:[^">]*))*)|(?:<a))\s*)(>[^<]*<\/\s*a\s*>)/g;
+
+    return string.replace(re, '$1 ' + attString + '$2')
   }
 
   private updateGridLayout(){
