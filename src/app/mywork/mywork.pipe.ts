@@ -22,7 +22,7 @@ export class MyworkPipe implements PipeTransform {
       case 0:
         return works.sort((a,b) => b.relevance - a.relevance)
       case 1:
-        return works.sort((a,b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+        return works.sort((a,b) => new Date(b.date).getTime() - new Date(a.date).getTime())
       case 2:
         return works.sort((a,b) => a.title.localeCompare(b.title))
     }
