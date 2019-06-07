@@ -17,6 +17,7 @@ const routes: Routes = [
       { path: "content", component: ContentComponent }
     ]
   },
+  { path: 'nci', pathMatch: 'full', component: LayoutComponent },
   { path: '', pathMatch: 'full', component: LayoutComponent },
 ];
 

@@ -4,12 +4,12 @@
 </div>
 
 
-<app-navbar></app-navbar>
+<app-navbar [removeContactInformation]="removeContactInformation"></app-navbar>
 
 <app-cover></app-cover>
 <app-about></app-about>
 <app-mywork></app-mywork>
-<app-contact></app-contact>
+<app-contact *ngIf='!removeContactInformation'></app-contact>
 
 
 

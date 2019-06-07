@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core'
 import { Language } from 'src/app/language-support'
 
@@ -8,6 +8,8 @@ import { Language } from 'src/app/language-support'
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+
+  @Input() public removeContactInformation:boolean;
 
   constructor(private translate: TranslateService) { }
 
