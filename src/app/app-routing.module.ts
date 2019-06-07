@@ -6,6 +6,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { AdminCpComponent } from './admin-cp/admin-cp.component';
 import { ProjectsComponent } from './admin-cp/projects/projects.component';
 import { ContentComponent } from './admin-cp/content/content.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,7 @@ const routes: Routes = [
   },
   { path: 'nci', pathMatch: 'full', component: LayoutComponent },
   { path: '', pathMatch: 'full', component: LayoutComponent },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
